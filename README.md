@@ -7,7 +7,9 @@ Learn how to write counterpoint with interactive composing tools.
 ### Requirements
 
 [node.js](http://nodejs.org)
+
 [npm](https://www.npmjs.org/)
+
 [bower](https://www.npmjs.org/)
 
 
