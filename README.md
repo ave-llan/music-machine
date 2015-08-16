@@ -10,7 +10,7 @@ Learn how to write counterpoint with interactive composing tools.
 
 [npm](https://www.npmjs.org/)
 
-[bower](https://www.npmjs.org/)
+[bower](http://bower.io/)
 
 
 ### Set up
