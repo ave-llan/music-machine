@@ -8,7 +8,7 @@ The idea is to define a context-free grammar similar to regular expressions whic
   - the grammar consists of simple intervals in relation to a scale
   - negative numbers indicate a descending interval
 
-2. Allow an additional filter for contextual restrictions
+2. Allow additional filters for contextual restrictions. Filters can be permanent or expire after a certain point (ie, expire after a direction change)
   - max range
   - allowed interval qualities
   - limit repetitions/sequences
