@@ -12,3 +12,5 @@ The idea is to define a context-free grammar similar to regular expressions whic
   - max range
   - allowed interval qualities
   - limit repetitions/sequences
+
+3. Internally, the program translates filtered intervals into actual notes in the provided scale and returns these notes as choices.
