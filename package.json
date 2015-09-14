@@ -36,6 +36,6 @@
   },
   "dependencies": {
     "grammar-graph": "^2.0.0",
-    "nmusic": "^0.1.0"
+    "nmusic": "^0.2.0"
   }
 }
