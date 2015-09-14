@@ -1,3 +1,11 @@
+/*
+ * in this simplified version, a negative number indicates a change of direction.
+ * So if the previous direction was down, a -2 means to go up 2 and continue
+ * going up until hitting another negative number.
+ *
+ * note: this will need to be changed as musicmachine will interpret
+ * negative numbers as descending intervals
+ */
 var cfGrammar = {
   Phrases: ['Phrase Phrases'],
   Phrase: ['LeapPhrase', 'StepPhrase'],
@@ -14,4 +22,4 @@ var cfGrammar = {
   LeapChange: ['-4', '-5', '-6', '-8']
 }
 
-Module.exports = cfGrammar
+module.exports = cfGrammar
