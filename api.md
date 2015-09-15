@@ -174,8 +174,8 @@ a function that choices will be passed through
 
 | Param | Type | Description |
 | --- | --- | --- |
-| construction | <code>Array.&lt;string&gt;</code> | the same array returned    by [construction](#GuidedMusicMachine+construction) |
-| choices | <code>Array.&lt;string&gt;</code> | the same array returned    by [choices](#GuidedMusicMachine+choices) |
+| construction | <code>Array.&lt;string&gt;</code> | the curent constrution as returned    by [construction](#GuidedMusicMachine+construction) |
+| choices | <code>Array.&lt;string&gt;</code> | the current choices as returned    by [choices](#GuidedMusicMachine+choices) |
 
 <a name="plusIntervalInKey"></a>
 ## plusIntervalInKey(key, sciPitch, intervalSize) ⇒ <code>String</code> &#124; <code>function</code>
