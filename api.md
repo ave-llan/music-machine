@@ -40,7 +40,7 @@ step-by-step construction of music from a predefined Music Machine
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| guide | <code>GuidedDecisionGraph</code> |  | a Guided Decision Graph. See: [GuidedDecisionGraph]{https://github.com/jrleszcz/grammar-graph/blob/master/api.md#GuidedDecisionGraph} |
+| guide | <code>GuidedDecisionGraph</code> |  | a Guided Decision Graph. See: [GuidedDecisionGraph](https://github.com/jrleszcz/grammar-graph/blob/master/api.md#GuidedDecisionGraph) |
 | [key] | <code>Key</code> | <code>&#x27;C major&#x27;</code> | the key in which to apply the generic interval. See [Key](https://github.com/jrleszcz/nmusic/blob/master/api.md#Key) |
 | [initialScaleDegrees] | <code>Array.&lt;number&gt;</code> | <code>[1]</code> | the scale degree(s) which constructions can start on |
 
