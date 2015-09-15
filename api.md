@@ -2,6 +2,8 @@
 <dl>
 <dt><a href="#GuidedMusicMachine">GuidedMusicMachine</a></dt>
 <dd></dd>
+<dt><a href="#TreeNode">TreeNode</a></dt>
+<dd></dd>
 <dt><a href="#MusicMachine">MusicMachine</a></dt>
 <dd></dd>
 </dl>
@@ -24,6 +26,7 @@ with the key and startPitch set as defaults.</p>
   * [.tonic()](#GuidedMusicMachine+tonic)
   * [.isComplete()](#GuidedMusicMachine+isComplete) ⇒ <code>boolean</code>
   * [.choose(pitch)](#GuidedMusicMachine+choose)
+  * [.pop()](#GuidedMusicMachine+pop) ⇒ <code>string</code>
   * [.choices([nDeep])](#GuidedMusicMachine+choices) ⇒ <code>Array.&lt;string&gt;</code>
 
 <a name="new_GuidedMusicMachine_new"></a>
@@ -66,6 +69,17 @@ adds the given pitch to the construction
 | --- | --- | --- |
 | pitch | <code>string</code> | a pitch string in the current set of next choices |
 
+<a name="GuidedMusicMachine+pop"></a>
+### guidedMusicMachine.pop() ⇒ <code>string</code>
+pop the last choice off the construction
+
+**Kind**: instance method of <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>  
+**Returns**: <code>string</code> - the last pitch string of the construction that was
+submitted through [choose](#GuidedMusicMachine+choose)  
+**Throws**:
+
+- throws an error if called when construction is empty
+
 <a name="GuidedMusicMachine+choices"></a>
 ### guidedMusicMachine.choices([nDeep]) ⇒ <code>Array.&lt;string&gt;</code>
 returns all possible next pitches. Some chains may
@@ -78,6 +92,26 @@ an array of nDeep length arrays of terminal choices
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [nDeep] | <code>number</code> | <code>1</code> | will search for nDeep possible choices |
+
+<a name="TreeNode"></a>
+## TreeNode
+**Kind**: global class  
+**See**: TreeNode returned from [GuidedDecisionGraph.choices](GuidedDecisionGraph#choices)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| val |  | any value |
+| next | <code>[Array.&lt;TreeNode&gt;](#TreeNode)</code> | a list of TreeNodes this node links to |
+
+<a name="new_TreeNode_new"></a>
+### new TreeNode(dg)
+Tree nodes to return decision trees from choices
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| dg | <code>DecisionGraph</code> | a Decision Graph that defines a grammar |
 
 <a name="MusicMachine"></a>
 ## MusicMachine
