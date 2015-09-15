@@ -9,6 +9,9 @@
 </dl>
 ## Functions
 <dl>
+<dt><a href="#filter">filter(construction, choices)</a></dt>
+<dd><p>a function that choices will be passed through</p>
+</dd>
 <dt><a href="#plusIntervalInKey">plusIntervalInKey(key, sciPitch, intervalSize)</a> ⇒ <code>String</code> | <code>function</code></dt>
 <dd><p>helper function that finds the result of adding a generic interval to a given pitch
 in the context of a key</p>
@@ -22,6 +25,7 @@ with the key and startPitch set as defaults.</p>
 
 * [GuidedMusicMachine](#GuidedMusicMachine)
   * [new GuidedMusicMachine(guide, [key], [initialScaleDegrees])](#new_GuidedMusicMachine_new)
+  * [.addFilter(filter)](#GuidedMusicMachine+addFilter)
   * [.construction()](#GuidedMusicMachine+construction) ⇒ <code>Array.&lt;string&gt;</code>
   * [.tonic()](#GuidedMusicMachine+tonic)
   * [.isComplete()](#GuidedMusicMachine+isComplete) ⇒ <code>boolean</code>
@@ -39,6 +43,16 @@ step-by-step construction of music from a predefined Music Machine
 | guide | <code>GuidedDecisionGraph</code> |  | a Guided Decision Graph. See: [GuidedDecisionGraph]{https://github.com/jrleszcz/grammar-graph/blob/master/api.md#GuidedDecisionGraph} |
 | [key] | <code>Key</code> | <code>&#x27;C major&#x27;</code> | the key in which to apply the generic interval. See [Key](https://github.com/jrleszcz/nmusic/blob/master/api.md#Key) |
 | [initialScaleDegrees] | <code>Array.&lt;number&gt;</code> | <code>[1]</code> | the scale degree(s) which constructions can start on |
+
+<a name="GuidedMusicMachine+addFilter"></a>
+### guidedMusicMachine.addFilter(filter)
+add a filter to the guide that will filter chioces based on the construction
+
+**Kind**: instance method of <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| filter | <code>[filter](#filter)</code> | a filter function that returns valid choices |
 
 <a name="GuidedMusicMachine+construction"></a>
 ### guidedMusicMachine.construction() ⇒ <code>Array.&lt;string&gt;</code>
@@ -150,6 +164,18 @@ get a new GuidedMusicMachine using this decision graph
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [key] | <code>string</code> | <code>&quot;&#x27;C major&#x27;&quot;</code> | the key in which to apply the generic interval. Must be a valid pitch string and mode name seperated by whitespace such as 'Bb minor'. |
+
+<a name="filter"></a>
+## filter(construction, choices)
+a function that choices will be passed through
+
+**Kind**: global function  
+**Returns{string[]}**: the choices with notes filtered out  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| construction | <code>Array.&lt;string&gt;</code> | the same array returned    by [construction](#GuidedMusicMachine+construction) |
+| choices | <code>Array.&lt;string&gt;</code> | the same array returned    by [choices](#GuidedMusicMachine+choices) |
 
 <a name="plusIntervalInKey"></a>
 ## plusIntervalInKey(key, sciPitch, intervalSize) ⇒ <code>String</code> &#124; <code>function</code>
