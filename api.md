@@ -134,6 +134,7 @@ Tree nodes to return decision trees from choices
 * [MusicMachine](#MusicMachine)
   * [new MusicMachine(grammar, startSymbol, [initialScaleDegrees])](#new_MusicMachine_new)
   * [.vertices()](#MusicMachine+vertices) ⇒ <code>Array.&lt;string&gt;</code>
+  * [.addFilter(filter)](#MusicMachine+addFilter)
   * [.createGuide([key])](#MusicMachine+createGuide) ⇒ <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>
 
 <a name="new_MusicMachine_new"></a>
@@ -153,6 +154,16 @@ get an array of vertex names in the graph
 
 **Kind**: instance method of <code>[MusicMachine](#MusicMachine)</code>  
 **Returns**: <code>Array.&lt;string&gt;</code> - the vertex names in this graph  
+<a name="MusicMachine+addFilter"></a>
+### musicMachine.addFilter(filter)
+add a filter to the guide that will filter chioces based on the construction
+
+**Kind**: instance method of <code>[MusicMachine](#MusicMachine)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| filter | <code>[filter](#filter)</code> | a filter function that returns valid choices |
+
 <a name="MusicMachine+createGuide"></a>
 ### musicMachine.createGuide([key]) ⇒ <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>
 get a new GuidedMusicMachine using this decision graph
