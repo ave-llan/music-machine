@@ -9,7 +9,7 @@
 </dl>
 ## Functions
 <dl>
-<dt><a href="#filter">filter(construction, choices)</a></dt>
+<dt><a href="#filter">filter(construction, choices)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>a function that choices will be passed through</p>
 </dd>
 <dt><a href="#plusIntervalInKey">plusIntervalInKey(key, sciPitch, intervalSize)</a> ⇒ <code>String</code> | <code>function</code></dt>
@@ -166,11 +166,11 @@ get a new GuidedMusicMachine using this decision graph
 | [key] | <code>string</code> | <code>&quot;&#x27;C major&#x27;&quot;</code> | the key in which to apply the generic interval. Must be a valid pitch string and mode name seperated by whitespace such as 'Bb minor'. |
 
 <a name="filter"></a>
-## filter(construction, choices)
+## filter(construction, choices) ⇒ <code>Array.&lt;string&gt;</code>
 a function that choices will be passed through
 
 **Kind**: global function  
-**Returns{string[]}**: the choices with notes filtered out  
+**Returns**: <code>Array.&lt;string&gt;</code> - the choices with notes filtered out  
 
 | Param | Type | Description |
 | --- | --- | --- |
