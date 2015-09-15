@@ -1,5 +1,5 @@
 {
-  "name": "music-machine",
+  "name": "musicmachine",
   "version": "0.0.0",
   "description": "generates music using your provided context-free grammar",
   "main": "index.js",
