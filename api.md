@@ -23,6 +23,8 @@ with the key and startPitch set as defaults.</p>
   * [.construction()](#GuidedMusicMachine+construction) ⇒ <code>Array.&lt;string&gt;</code>
   * [.tonic()](#GuidedMusicMachine+tonic)
   * [.isComplete()](#GuidedMusicMachine+isComplete) ⇒ <code>boolean</code>
+  * [.choose(pitch)](#GuidedMusicMachine+choose)
+  * [.choices([nDeep])](#GuidedMusicMachine+choices) ⇒ <code>Array.&lt;string&gt;</code>
 
 <a name="new_GuidedMusicMachine_new"></a>
 ### new GuidedMusicMachine(guide, [key], [initialScaleDegrees])
@@ -32,7 +34,7 @@ step-by-step construction of music from a predefined Music Machine
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | guide | <code>GuidedDecisionGraph</code> |  | a Guided Decision Graph. See: [GuidedDecisionGraph]{https://github.com/jrleszcz/grammar-graph/blob/master/api.md#GuidedDecisionGraph} |
-| [key] | <code>string</code> | <code>&quot;&#x27;C major&#x27;&quot;</code> | the key in which to apply the generic interval. Must be a valid pitch string and mode name seperated by whitespace such as 'Bb major'. |
+| [key] | <code>Key</code> | <code>&#x27;C major&#x27;</code> | the key in which to apply the generic interval. See [Key](https://github.com/jrleszcz/nmusic/blob/master/api.md#Key) |
 | [initialScaleDegrees] | <code>Array.&lt;number&gt;</code> | <code>[1]</code> | the scale degree(s) which constructions can start on |
 
 <a name="GuidedMusicMachine+construction"></a>
@@ -54,6 +56,29 @@ nonterminal? ie, does the construction end in epsilon?
 
 **Kind**: instance method of <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>  
 **Returns**: <code>boolean</code> - is the construction complete  
+<a name="GuidedMusicMachine+choose"></a>
+### guidedMusicMachine.choose(pitch)
+adds the given pitch to the construction
+
+**Kind**: instance method of <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| pitch | <code>string</code> | a pitch string in the current set of next choices |
+
+<a name="GuidedMusicMachine+choices"></a>
+### guidedMusicMachine.choices([nDeep]) ⇒ <code>Array.&lt;string&gt;</code>
+returns all possible next pitches. Some chains may
+have a length less than nDeep if that chain ends in epsilon.
+
+**Kind**: instance method of <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>  
+**Returns**: <code>Array.&lt;string&gt;</code> - if nDeep=1, an array of pitch strings, else
+an array of nDeep length arrays of terminal choices  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [nDeep] | <code>number</code> | <code>1</code> | will search for nDeep possible choices |
+
 <a name="MusicMachine"></a>
 ## MusicMachine
 **Kind**: global class  

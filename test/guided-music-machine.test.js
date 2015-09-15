@@ -13,6 +13,11 @@ test('GuidedMusicMachine initializaiton', function (t) {
   t.false(guide.isComplete())
   t.deepEqual(guide.construction(), [])
   t.deepEqual(guide.choices(), ['D'])
+  guide.choose('D')
+  t.deepEqual(guide.construction(), ['D4'])
+  t.deepEqual(guide.choices().sort(),
+    ['E4', 'F4', 'G4', 'A4', 'Bb4', 'D5',
+    'C4', 'Bb3', 'A3', 'G3', 'F3', 'D3'].sort())
 
   var guide2 = new GuidedMusicMachine(cfGraph.createGuide('Start'),
                                       new Key('Eb', 'major'),
