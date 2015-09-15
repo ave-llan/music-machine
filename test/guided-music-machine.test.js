@@ -19,6 +19,23 @@ test('GuidedMusicMachine initializaiton', function (t) {
     ['E4', 'F4', 'G4', 'A4', 'Bb4', 'D5',
     'C4', 'Bb3', 'A3', 'G3', 'F3', 'D3'].sort())
 
+  t.equal(guide.pop(), 'D4')
+  t.deepEqual(guide.construction(), [])
+  t.deepEqual(guide.choices(), ['D'])
+
+  t.throws(function () {
+    guide.choose('A')
+  }, Error)
+
+  guide.choose('D3')
+  t.deepEqual(guide.construction(), ['D3'])
+  t.deepEqual(guide.choices().sort(),
+    ['E3', 'F3', 'G3', 'A3', 'Bb3', 'D4',
+    'C3', 'Bb2', 'A2', 'G2', 'F2', 'D2'].sort())
+  t.throws(function () {
+    guide.choose('F#3')
+  }, Error)
+
   var guide2 = new GuidedMusicMachine(cfGraph.createGuide('Start'),
                                       new Key('Eb', 'major'),
                                       [1, 3, 5])
