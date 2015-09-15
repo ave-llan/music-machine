@@ -10,8 +10,8 @@
 <dt><a href="#plusIntervalInKey">plusIntervalInKey(key, sciPitch, intervalSize)</a> ⇒ <code>String</code> | <code>function</code></dt>
 <dd><p>helper function that finds the result of adding a generic interval to a given pitch
 in the context of a key</p>
-<p>Optionally, exclude the intervalSize parameter and get back a function curried function
-with key and startPitch set as default.</p>
+<p>Optionally, exclude the intervalSize parameter and get back a curried function
+with the key and startPitch set as defaults.</p>
 </dd>
 </dl>
 <a name="GuidedMusicMachine"></a>
@@ -91,8 +91,8 @@ get a new GuidedMusicMachine using this decision graph
 helper function that finds the result of adding a generic interval to a given pitch
 in the context of a key
 
-Optionally, exclude the intervalSize parameter and get back a function curried function
-with key and startPitch set as default.
+Optionally, exclude the intervalSize parameter and get back a curried function
+with the key and startPitch set as defaults.
 
 **Kind**: global function  
 **Returns**: <code>String</code> &#124; <code>function</code> - the resulting pitch string, or if given only one argument,
@@ -100,7 +100,7 @@ returns a function with the given argument set as a default.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| key | <code>Key</code> | the key in which to apply the generic interval. See: [Key](https://github.com/jrleszcz/nmusic/blob/master/api.md#Key) |
+| key | <code>string</code> | the key in which to apply the generic interval. Must be a valid pitch string and mode name seperated by whitespace such as 'Bb major' or 'Db dorian' |
 | sciPitch | <code>string</code> | a pitch in scientific pitch notation. |
 | intervalSize | <code>number</code> | an interval string or number with or without quality. If quality is not provided, accidentals on given pitch will be ignored. |
 
