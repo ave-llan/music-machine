@@ -17,7 +17,7 @@ var upwardOnly = {
   UpwardFrom3Phrase: ['3', '3 UpwardContinueFrom3'],
   UpwardContinueFrom2: ['2', '3', '2 2', '2 3', '3 2',
                   '2 2 2', '2 3 2', '2 2 3', '3 2 2'],
-  UpwardContinueFrom3: ['2', '2 2', '2 2 2', '2 3'],
+  UpwardContinueFrom3: ['2', '2 2', '2 2 2', '2 3']
 }
 
 // build the updward and downard grammar
