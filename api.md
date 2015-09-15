@@ -9,7 +9,7 @@
 </dl>
 ## Functions
 <dl>
-<dt><a href="#filter">filter(construction, choices)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dt><a href="#filter">filter(choices, construction)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>a function that choices will be passed through</p>
 </dd>
 <dt><a href="#plusIntervalInKey">plusIntervalInKey(key, sciPitch, intervalSize)</a> ⇒ <code>String</code> | <code>function</code></dt>
@@ -177,7 +177,7 @@ get a new GuidedMusicMachine using this decision graph
 | [key] | <code>string</code> | <code>&quot;&#x27;C major&#x27;&quot;</code> | the key in which to apply the generic interval. Must be a valid pitch string and mode name seperated by whitespace such as 'Bb minor'. |
 
 <a name="filter"></a>
-## filter(construction, choices) ⇒ <code>Array.&lt;string&gt;</code>
+## filter(choices, construction) ⇒ <code>Array.&lt;string&gt;</code>
 a function that choices will be passed through
 
 **Kind**: global function  
@@ -185,8 +185,8 @@ a function that choices will be passed through
 
 | Param | Type | Description |
 | --- | --- | --- |
-| construction | <code>Array.&lt;string&gt;</code> | the curent constrution as returned    by [construction](#GuidedMusicMachine+construction) |
 | choices | <code>Array.&lt;string&gt;</code> | the current choices as returned    by [choices](#GuidedMusicMachine+choices) |
+| construction | <code>Array.&lt;string&gt;</code> | the curent constrution as returned    by [construction](#GuidedMusicMachine+construction) |
 
 <a name="plusIntervalInKey"></a>
 ## plusIntervalInKey(key, sciPitch, intervalSize) ⇒ <code>String</code> &#124; <code>function</code>
