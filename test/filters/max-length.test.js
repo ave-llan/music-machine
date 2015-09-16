@@ -61,5 +61,29 @@ test('filter: maxLength', function (t) {
       { val: 'A2', next: [] }
     ].sort())
 
+  // same filter can be added with different params
+  guide.addFilter(MusicMachine.filter.maxLength(2))
+  t.deepEqual(guide.choices(), [])
+  t.deepEqual(guide.choices(4), [])
+
+  guide.pop()
+  t.deepEqual(guide.choices().sort(),
+    ['E3', 'F3', 'G3', 'A3', 'B3', 'D4',
+     'C3', 'B2', 'A2', 'G2', 'F2', 'D2'].sort())
+
+  // add exact duplicate, and nothing should change
+  guide.addFilter(MusicMachine.filter.maxLength(2))
+  t.deepEqual(guide.choices().sort(),
+    ['E3', 'F3', 'G3', 'A3', 'B3', 'D4',
+     'C3', 'B2', 'A2', 'G2', 'F2', 'D2'].sort())
+
+  // retroactive filter precludes any more choices, but does not throw error
+  guide.addFilter(MusicMachine.filter.maxLength(0))
+  t.deepEqual(guide.choices(), [])
+  t.deepEqual(guide.construction(), ['D3'])
+  t.equal(guide.pop(), 'D3')
+  t.deepEqual(guide.choices(), [])
+  t.deepEqual(guide.construction(), [])
+
   t.end()
 })
