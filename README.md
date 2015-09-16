@@ -19,16 +19,14 @@ JupiterTheme in D major:
 D    E    G    F#
 ```
 
-Good music is often made up of just a few small patterns which are combined to make something bigger. For example, repeating `JupiterTheme` twice makes a nice sequence, so we might define a `JupiterPattern` in terms of the already defined `JupiterTheme`. I will also add a final descending fifth at the end, just for fun:
+Good music is often made up of just a few small patterns which are combined to make something bigger. For example, repeating `JupiterTheme` twice makes a nice sequence, so we might define larger pattern with it. I will also add a final descending fifth at the end, just for fun:
 ```
-JupiterPattern: JupiterTheme  JupiterTheme -5
+JupiterPattern: JupiterTheme  JupiterTheme  -5
 
 JupiterPattern in C major:
  +2  +3  -2   +2   +3   -2   -5
 C   D   F   E    F    A    G    C
 ```
-
-
 
 ## Goals
 
