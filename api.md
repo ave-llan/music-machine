@@ -17,6 +17,10 @@
 <dd><p>filter generator that returns a filter which restricts the maximum
                             length of the construction</p>
 </dd>
+<dt><a href="#maxRange">maxRange(maxIntervalSize)</a> ⇒ <code><a href="#filter">filter</a></code></dt>
+<dd><p>filter generator that returns a filter which restricts the maximum
+                            range of the construction</p>
+</dd>
 <dt><a href="#filter">filter(choices, construction)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>a user defined function that <a href="#GuidedMusicMachine+choices">choices</a>
 will be passed through, filtering out certain choices.</p>
@@ -30,6 +34,9 @@ with the key and startPitch set as defaults.</p>
 <dt><a href="#clone">clone(obj)</a> ⇒ <code>object</code> | <code>array</code></dt>
 <dd><p>helper function to clone a simple object/array made up of primitives.
 Will not work if the object or array contains non-primitives.</p>
+</dd>
+<dt><a href="#sortPitches">sortPitches(pitches)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>helper function to return a copy of .</p>
 </dd>
 </dl>
 <a name="GuidedMusicMachine"></a>
@@ -263,6 +270,18 @@ filter generator that returns a filter which restricts the maximum
 | --- | --- | --- |
 | max | <code>number</code> | the maximum length (inclusive) of the                             desired construction |
 
+<a name="maxRange"></a>
+## maxRange(maxIntervalSize) ⇒ <code>[filter](#filter)</code>
+filter generator that returns a filter which restricts the maximum
+                            range of the construction
+
+**Kind**: global function  
+**Returns**: <code>[filter](#filter)</code> - a filter that limits the range of the construction  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| maxIntervalSize | <code>number</code> | the maximum range (inclusive) of the                             desired construction |
+
 <a name="filter"></a>
 ## filter(choices, construction) ⇒ <code>Array.&lt;string&gt;</code>
 a user defined function that [choices](#GuidedMusicMachine+choices)
@@ -305,4 +324,16 @@ Will not work if the object or array contains non-primitives.
 | Param | Type | Description |
 | --- | --- | --- |
 | obj | <code>object</code> &#124; <code>array</code> | an object array made up only of primitives |
+
+<a name="sortPitches"></a>
+## sortPitches(pitches) ⇒ <code>Array.&lt;string&gt;</code>
+helper function to return a copy of .
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - a new clone of the provided pitch string
+array sorted from low pitch to high pitch  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| pitches | <code>Array.&lt;string&gt;</code> | an array of pitch strings |
 
