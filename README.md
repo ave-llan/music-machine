@@ -1,6 +1,4 @@
-Musicbox is currently **under development**.
-
-The idea is to define a context-free grammar similar to regular expressions which can be used to define a musical style and generate music.
+Musicbox interactively generates music using a provided context-free grammar and optional contextual filters.
 
 ## Goals
 
@@ -14,3 +12,25 @@ The idea is to define a context-free grammar similar to regular expressions whic
   - limit repetitions/sequences
 
 3. Internally, the program translates filtered intervals into actual notes in the provided scale and returns these notes as choices.
+
+## Docs
+[View the api documentation here.](api.md)
+
+## Development
+
+Clone the git repository and install development dependencies:
+```
+git clone https://github.com/jrleszcz/grammar-graph.git
+cd grammar-graph
+npm install
+```
+
+To run eslint and tape tests:
+```
+npm test
+```
+
+To generate api documentation for [api.md](api.md):
+```
+npm run docs
+```
