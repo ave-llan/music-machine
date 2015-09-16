@@ -10,7 +10,8 @@
 ## Functions
 <dl>
 <dt><a href="#maxLength">maxLength(max)</a> ⇒ <code><a href="#filter">filter</a></code></dt>
-<dd><p>returns a filter that restricts the maximum length of the construction</p>
+<dd><p>filter generator that returns a filter which restricts the maximum
+                            length of the construction</p>
 </dd>
 <dt><a href="#filter">filter(choices, construction)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>a function that choices will be passed through</p>
@@ -194,7 +195,8 @@ to be passed to [addFilter](#MusicMachine+addFilter)
 **Kind**: static property of <code>[MusicMachine](#MusicMachine)</code>  
 <a name="maxLength"></a>
 ## maxLength(max) ⇒ <code>[filter](#filter)</code>
-returns a filter that restricts the maximum length of the construction
+filter generator that returns a filter which restricts the maximum
+                            length of the construction
 
 **Kind**: global function  
 **Returns**: <code>[filter](#filter)</code> - a filter that limits the length of the construction  
