@@ -2,7 +2,7 @@ Interactively generate music by defining a musical style in terms of [interval n
 
 ## Overview
 
-This library is an extension of [grammar-graph](https://www.npmjs.com/package/grammar-graph) which enables music patterns to be applied in any key or [mode](https://en.wikipedia.org/wiki/Mode_(music)#Modern). If you instead want to define a musical grammar in terms of literal notes, like the theme from [Mozart's Jupiter Symphony](https://www.youtube.com/watch?v=SiX3z_fOR5k), `JupiterTheme: C D F E`, you should use [grammar-graph](https://www.npmjs.com/package/grammar-graph) directly instead of this library. In music-machine, the `JupiterTheme` pattern would look like this:
+This library is an extension of [grammar-graph](https://www.npmjs.com/package/grammar-graph) which enables music patterns to be applied in any key or mode. If you instead want to define a musical grammar in terms of literal notes, like the theme from [Mozart's Jupiter Symphony](https://www.youtube.com/watch?v=SiX3z_fOR5k), `JupiterTheme: C D F E`, you should use grammar-graph directly instead of this library. In music-machine, the `JupiterTheme` pattern would look like this:
 ```
 JupiterTheme: 2  3  -2
 ```
