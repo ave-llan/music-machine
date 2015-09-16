@@ -147,6 +147,7 @@ Tree nodes to return decision trees from choices
     * [.createGuide([key])](#MusicMachine+createGuide) ⇒ <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>
   * _static_
     * [.filter](#MusicMachine.filter)
+      * [.maxLength](#MusicMachine.filter.maxLength) ⇒ <code>[filter](#filter)</code>
 
 <a name="new_MusicMachine_new"></a>
 ### new MusicMachine(grammar, startSymbol, [initialScaleDegrees])
@@ -193,6 +194,18 @@ a collection of filter generators that generate filters
 to be passed to [addFilter](#MusicMachine+addFilter)
 
 **Kind**: static property of <code>[MusicMachine](#MusicMachine)</code>  
+<a name="MusicMachine.filter.maxLength"></a>
+#### filter.maxLength ⇒ <code>[filter](#filter)</code>
+limit the length of a construction
+
+**Kind**: static property of <code>[filter](#MusicMachine.filter)</code>  
+**Returns**: <code>[filter](#filter)</code> - a filter that limits the length of the construction  
+**See**: [maxLength](#maxLength)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| max | <code>number</code> | the maximum length (inclusive) of the                             desired construction |
+
 <a name="maxLength"></a>
 ## maxLength(max) ⇒ <code>[filter](#filter)</code>
 filter generator that returns a filter which restricts the maximum
