@@ -1,4 +1,4 @@
-Interactively generate music by defining a musical style in terms of [interval numbers](https://en.wikipedia.org/wiki/Interval_(music)#Number) in the form of a [context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar).
+Interactively generate music by defining a musical style in terms of [interval numbers](https://en.wikipedia.org/wiki/Interval_(music)#Number) in a [context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar).
 
 ## Overview
 
