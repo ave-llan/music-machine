@@ -19,7 +19,7 @@ JupiterTheme in D major:
 D    E    G    F#
 ```
 
-Good music is often made up of just a few small patterns which are combined to make something bigger. For example, repeating `JupiterTheme` twice makes a nice sequence, so we might define larger pattern with it. I will also add a final descending fifth at the end, just for fun:
+Good music is often made up of just a few small patterns which are combined to make something bigger. For example, repeating `JupiterTheme` twice makes a nice sequence, so we might define a larger pattern with it. I will also add a final descending fifth at the end, just for fun:
 ```
 JupiterPattern: JupiterTheme  JupiterTheme  -5
 
@@ -27,6 +27,34 @@ JupiterPattern in C major:
  +2  +3  -2   +2   +3   -2   -5
 C   D   F   E    F    A    G    C
 ```
+
+
+## Example
+
+Install the npm module.
+```
+npm install music-machine
+```
+
+Require music-machine and input a grammar to define a style. The grammar format shown in the [overview](https://github.com/jrleszcz/music-machine#overview) is simplified, so see [grammar syntax](https://github.com/jrleszcz/grammar-graph#grammar) for details.
+```js
+var MusicMachine = require('music-machine')
+
+var jupiterGrammar = {
+  InfinitePhrase: [ 'JupiterTheme   InfinitePhrase',
+                    'JupiterPattern InfinitePhrase',
+                    'SecondTheme    InfinitePhrase' ],
+  JupiterPattern: [ 'JupiterTheme JupiterTheme -5' ],
+    JupiterTheme: [ '2 3 -2' ],
+     SecondTheme: [ '4 StepDown' ],
+        StepDown: [ '-2', '-2 StepDown']
+}
+```
+Create a new MusicMachine by passing it the grammar along with the symbol at which to start the construction.
+```js
+var machine = new MusicMachine(jupiterGrammar, 'InfinitePhrase')
+```
+
 
 ## Goals
 
