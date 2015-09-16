@@ -4,37 +4,38 @@ Interactively generate music by defining a musical style in terms of [interval n
 
 This module is an extension of [grammar-graph](https://www.npmjs.com/package/grammar-graph) built specifically to construct music from patterns of [interval numbers](https://en.wikipedia.org/wiki/Interval_(music)#Number) which can then be applied to any [key](https://en.wikipedia.org/wiki/Key_(music)) or [mode](https://en.wikipedia.org/wiki/Mode_(music)#Modern).
 
-An example definition in a grammar might be:
-```
-Intone: 3 3 -2
-
-```
-This means to move up a third, then up a third again, and then down a second.
-
-```
-Intone in C minor:
-  +3    +3   -2
-C    Eb    G    F
-
-Intone in D major:
-  +3    +3   -2
-D    F#    A    G
-```
-
-Good music is often made up of just a few small patterns which are combined to make something bigger. For example, repeating `Intone` three times makes a nice sequence, so we might define `IntoneSequence` in terms of the already defined `Intone`:
-```
-IntoneSequence: Intone Intone Intone
-
-IntoneSequence in G major:
- +3  +3  -2   +3   +3   -2    +3   +3   -2
-G   B   D   C    E    G    F#    A    C    B
-```
-
-Music-machine solves the more complicated problem of applying patterns to any key. If you instead want to define a musical grammar in terms of literal notes like this:
+This library enables patterns to be applied in any key. If you instead want to define a musical grammar in terms of literal notes, like the theme from [Mozart's Jupiter Symphony](https://www.youtube.com/watch?v=SiX3z_fOR5k),
 ```
 JupiterTheme: C D F E
 ```
-You should use [grammar-graph](https://www.npmjs.com/package/grammar-graph) directly instead of this library.
+you should use [grammar-graph](https://www.npmjs.com/package/grammar-graph) directly instead of this library. In music-machine, the `JupiterTheme` pattern would look like this:
+```
+JupiterTheme: 2  3  -2
+```
+This means to move up a second, then up a third, and then down a second.
+
+Note that the interval numbers here are defining the distance *between* notes, which is why only three intervals are needed to describe a four note pattern.
+
+The `JupiterTheme` could then be applied to any key:
+```
+JupiterTheme in C minor:
+  +2   +3   -2
+C    D    F    Eb
+
+JupiterTheme in D major:
+  +3   +3   -2
+D    E    G    F#
+```
+
+Good music is often made up of just a few small patterns which are combined to make something bigger. For example, repeating `JupiterTheme` twice makes a nice sequence, so we might define `JupiterPattern` in terms of the already defined `JupiterTheme`:
+```
+JupiterPattern: JupiterTheme  JupiterTheme
+
+JupiterPattern in C major:
+ +2  +3  -2   +2   +3   -2
+C   D   F   E    F    A    G
+```
+
 
 
 ## Goals
