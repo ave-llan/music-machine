@@ -56,18 +56,9 @@ var machine = new MusicMachine(jupiterGrammar, 'InfinitePhrase')
 ```
 
 
-## Goals
-
-1. Input a context-free grammar to represent intervals in music
-  - the grammar consists of simple intervals in relation to a scale
-  - negative numbers indicate a descending interval
-
-2. Allow additional filters for contextual restrictions. Filters can be permanent or expire after a certain point (ie, expire after a direction change)
-  - max range
-  - allowed interval qualities
-  - limit repetitions/sequences
-
-3. Internally, the program translates filtered intervals into actual notes in the provided scale and returns these notes as choices.
+## Filters
+[this section will be expanded]
+For your convenience, you can pass filters to instances of MusicMachine or GuidedMusicMachine which reduce the number of choices. For example, you might want to pass a guide a filter that limits a construction to a total range of a 10th.
 
 ## Docs
 [View the api documentation here.](api.md)
