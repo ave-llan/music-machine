@@ -9,6 +9,9 @@
 </dl>
 ## Functions
 <dl>
+<dt><a href="#maxLength">maxLength(max)</a> ⇒ <code><a href="#filter">filter</a></code></dt>
+<dd><p>returns a filter that restricts the maximum length of the construction</p>
+</dd>
 <dt><a href="#filter">filter(choices, construction)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>a function that choices will be passed through</p>
 </dd>
@@ -17,6 +20,10 @@
 in the context of a key</p>
 <p>Optionally, exclude the intervalSize parameter and get back a curried function
 with the key and startPitch set as defaults.</p>
+</dd>
+<dt><a href="#clone">clone(obj)</a> ⇒ <code>object</code> | <code>array</code></dt>
+<dd><p>helper function to clone a simple object/array made up of primitives.
+Will not work if the object or array contains non-primitives.</p>
 </dd>
 </dl>
 <a name="GuidedMusicMachine"></a>
@@ -133,9 +140,12 @@ Tree nodes to return decision trees from choices
 
 * [MusicMachine](#MusicMachine)
   * [new MusicMachine(grammar, startSymbol, [initialScaleDegrees])](#new_MusicMachine_new)
-  * [.vertices()](#MusicMachine+vertices) ⇒ <code>Array.&lt;string&gt;</code>
-  * [.addFilter(filter)](#MusicMachine+addFilter)
-  * [.createGuide([key])](#MusicMachine+createGuide) ⇒ <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>
+  * _instance_
+    * [.vertices()](#MusicMachine+vertices) ⇒ <code>Array.&lt;string&gt;</code>
+    * [.addFilter(filter)](#MusicMachine+addFilter)
+    * [.createGuide([key])](#MusicMachine+createGuide) ⇒ <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>
+  * _static_
+    * [.filter](#MusicMachine.filter)
 
 <a name="new_MusicMachine_new"></a>
 ### new MusicMachine(grammar, startSymbol, [initialScaleDegrees])
@@ -176,6 +186,23 @@ get a new GuidedMusicMachine using this decision graph
 | --- | --- | --- | --- |
 | [key] | <code>string</code> | <code>&quot;&#x27;C major&#x27;&quot;</code> | the key in which to apply the generic interval. Must be a valid pitch string and mode name seperated by whitespace such as 'Bb minor'. |
 
+<a name="MusicMachine.filter"></a>
+### MusicMachine.filter
+a collection of filter generators that generate filters
+to be passed to [addFilter](#MusicMachine+addFilter)
+
+**Kind**: static property of <code>[MusicMachine](#MusicMachine)</code>  
+<a name="maxLength"></a>
+## maxLength(max) ⇒ <code>[filter](#filter)</code>
+returns a filter that restricts the maximum length of the construction
+
+**Kind**: global function  
+**Returns**: <code>[filter](#filter)</code> - a filter that limits the length of the construction  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| max | <code>number</code> | the maximum length (inclusive) of the                             desired construction |
+
 <a name="filter"></a>
 ## filter(choices, construction) ⇒ <code>Array.&lt;string&gt;</code>
 a function that choices will be passed through
@@ -205,4 +232,16 @@ returns a function with the given argument set as a default.
 | key | <code>string</code> | the key in which to apply the generic interval. Must be a valid pitch string and mode name seperated by whitespace such as 'Bb major' or 'Db dorian' |
 | sciPitch | <code>string</code> | a pitch in scientific pitch notation. |
 | intervalSize | <code>number</code> | an interval string or number with or without quality. If quality is not provided, accidentals on given pitch will be ignored. |
+
+<a name="clone"></a>
+## clone(obj) ⇒ <code>object</code> &#124; <code>array</code>
+helper function to clone a simple object/array made up of primitives.
+Will not work if the object or array contains non-primitives.
+
+**Kind**: global function  
+**Returns**: <code>object</code> &#124; <code>array</code> - a new clone of the provided object or array  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| obj | <code>object</code> &#124; <code>array</code> | an object array made up only of primitives |
 
