@@ -152,8 +152,8 @@ Tree nodes to return decision trees from choices
     * [.createGuide([key])](#MusicMachine+createGuide) ⇒ <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>
   * _static_
     * [.filter](#MusicMachine.filter)
-      * [.maxLength](#MusicMachine.filter.maxLength) ⇒ <code>[filter](#filter)</code>
-      * [.allowedIntervalQualities](#MusicMachine.filter.allowedIntervalQualities) ⇒ <code>[filter](#filter)</code>
+      * [.maxLength(max)](#MusicMachine.filter.maxLength) ⇒ <code>[filter](#filter)</code>
+      * [.allowedIntervalQualities(...quality)](#MusicMachine.filter.allowedIntervalQualities) ⇒ <code>[filter](#filter)</code>
 
 <a name="new_MusicMachine_new"></a>
 ### new MusicMachine(grammar, startSymbol, [initialScaleDegrees])
@@ -202,14 +202,14 @@ to be passed to [addFilter](#MusicMachine+addFilter)
 **Kind**: static property of <code>[MusicMachine](#MusicMachine)</code>  
 
   * [.filter](#MusicMachine.filter)
-    * [.maxLength](#MusicMachine.filter.maxLength) ⇒ <code>[filter](#filter)</code>
-    * [.allowedIntervalQualities](#MusicMachine.filter.allowedIntervalQualities) ⇒ <code>[filter](#filter)</code>
+    * [.maxLength(max)](#MusicMachine.filter.maxLength) ⇒ <code>[filter](#filter)</code>
+    * [.allowedIntervalQualities(...quality)](#MusicMachine.filter.allowedIntervalQualities) ⇒ <code>[filter](#filter)</code>
 
 <a name="MusicMachine.filter.maxLength"></a>
-#### filter.maxLength ⇒ <code>[filter](#filter)</code>
+#### filter.maxLength(max) ⇒ <code>[filter](#filter)</code>
 limit the length of a construction
 
-**Kind**: static property of <code>[filter](#MusicMachine.filter)</code>  
+**Kind**: static method of <code>[filter](#MusicMachine.filter)</code>  
 **Returns**: <code>[filter](#filter)</code> - a filter that limits the length of the construction  
 **See**: [maxLength](#maxLength)  
 
@@ -218,10 +218,10 @@ limit the length of a construction
 | max | <code>number</code> | the maximum length (inclusive) of the                             desired construction |
 
 <a name="MusicMachine.filter.allowedIntervalQualities"></a>
-#### filter.allowedIntervalQualities ⇒ <code>[filter](#filter)</code>
+#### filter.allowedIntervalQualities(...quality) ⇒ <code>[filter](#filter)</code>
 only allow certain interval qualities
 
-**Kind**: static property of <code>[filter](#MusicMachine.filter)</code>  
+**Kind**: static method of <code>[filter](#MusicMachine.filter)</code>  
 **Returns**: <code>[filter](#filter)</code> - a filter that only allows the specified intervals  
 **See**: [allowedIntervalQualities](#allowedIntervalQualities)  
 
