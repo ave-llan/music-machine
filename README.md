@@ -32,7 +32,7 @@ G   B   D   C    E    G    F#    A    C    B
 
 Music-machine solves the more complicated problem of applying patterns to any key. If you instead want to define a musical grammar in terms of literal notes like this:
 ```
-JupiterTheme: C5 D5 F5 E5
+JupiterTheme: C D F E
 ```
 You should use [grammar-graph](https://www.npmjs.com/package/grammar-graph) directly instead of this library.
 
