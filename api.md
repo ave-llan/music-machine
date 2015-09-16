@@ -9,13 +9,16 @@
 </dl>
 ## Functions
 <dl>
-<dt><a href="#allowedIntervalQualities">allowedIntervalQualities(...quality)</a> ⇒ <code>filter</code></dt>
+<dt><a href="#allowedIntervalQualities">allowedIntervalQualities(...quality)</a> ⇒ <code><a href="#filter">filter</a></code></dt>
 <dd><p>filter generator that returns a filter which restricts the maximum
                             length of the construction</p>
 </dd>
-<dt><a href="#maxLength">maxLength(max)</a> ⇒ <code>filter</code></dt>
+<dt><a href="#maxLength">maxLength(max)</a> ⇒ <code><a href="#filter">filter</a></code></dt>
 <dd><p>filter generator that returns a filter which restricts the maximum
                             length of the construction</p>
+</dd>
+<dt><a href="#filter">filter(choices, construction)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>a function that choices will be passed through</p>
 </dd>
 <dt><a href="#plusIntervalInKey">plusIntervalInKey(key, sciPitch, intervalSize)</a> ⇒ <code>String</code> | <code>function</code></dt>
 <dd><p>helper function that finds the result of adding a generic interval to a given pitch
@@ -61,7 +64,7 @@ add a filter to the guide that will filter chioces based on the construction
 
 | Param | Type | Description |
 | --- | --- | --- |
-| filter | <code>filter</code> | a filter function that returns valid choices |
+| filter | <code>[filter](#filter)</code> | a filter function that returns valid choices |
 
 <a name="GuidedMusicMachine+construction"></a>
 ### guidedMusicMachine.construction() ⇒ <code>Array.&lt;string&gt;</code>
@@ -148,8 +151,8 @@ Tree nodes to return decision trees from choices
     * [.createGuide([key])](#MusicMachine+createGuide) ⇒ <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>
   * _static_
     * [.filter](#MusicMachine.filter)
-      * [.maxLength](#MusicMachine.filter.maxLength) ⇒ <code>filter</code>
-      * [.allowedIntervalQualities](#MusicMachine.filter.allowedIntervalQualities) ⇒ <code>filter</code>
+      * [.maxLength](#MusicMachine.filter.maxLength) ⇒ <code>[filter](#filter)</code>
+      * [.allowedIntervalQualities](#MusicMachine.filter.allowedIntervalQualities) ⇒ <code>[filter](#filter)</code>
 
 <a name="new_MusicMachine_new"></a>
 ### new MusicMachine(grammar, startSymbol, [initialScaleDegrees])
@@ -176,7 +179,7 @@ add a filter to the guide that will filter chioces based on the construction
 
 | Param | Type | Description |
 | --- | --- | --- |
-| filter | <code>filter</code> | a filter function that returns valid choices |
+| filter | <code>[filter](#filter)</code> | a filter function that returns valid choices |
 
 <a name="MusicMachine+createGuide"></a>
 ### musicMachine.createGuide([key]) ⇒ <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>
@@ -198,15 +201,15 @@ to be passed to [addFilter](#MusicMachine+addFilter)
 **Kind**: static property of <code>[MusicMachine](#MusicMachine)</code>  
 
   * [.filter](#MusicMachine.filter)
-    * [.maxLength](#MusicMachine.filter.maxLength) ⇒ <code>filter</code>
-    * [.allowedIntervalQualities](#MusicMachine.filter.allowedIntervalQualities) ⇒ <code>filter</code>
+    * [.maxLength](#MusicMachine.filter.maxLength) ⇒ <code>[filter](#filter)</code>
+    * [.allowedIntervalQualities](#MusicMachine.filter.allowedIntervalQualities) ⇒ <code>[filter](#filter)</code>
 
 <a name="MusicMachine.filter.maxLength"></a>
-#### filter.maxLength ⇒ <code>filter</code>
+#### filter.maxLength ⇒ <code>[filter](#filter)</code>
 limit the length of a construction
 
 **Kind**: static property of <code>[filter](#MusicMachine.filter)</code>  
-**Returns**: <code>filter</code> - a filter that limits the length of the construction  
+**Returns**: <code>[filter](#filter)</code> - a filter that limits the length of the construction  
 **See**: [maxLength](#maxLength)  
 
 | Param | Type | Description |
@@ -214,11 +217,11 @@ limit the length of a construction
 | max | <code>number</code> | the maximum length (inclusive) of the                             desired construction |
 
 <a name="MusicMachine.filter.allowedIntervalQualities"></a>
-#### filter.allowedIntervalQualities ⇒ <code>filter</code>
+#### filter.allowedIntervalQualities ⇒ <code>[filter](#filter)</code>
 only allow certain interval qualities
 
 **Kind**: static property of <code>[filter](#MusicMachine.filter)</code>  
-**Returns**: <code>filter</code> - a filter that only allows the specified intervals  
+**Returns**: <code>[filter](#filter)</code> - a filter that only allows the specified intervals  
 **See**: [allowedIntervalQualities](#allowedIntervalQualities)  
 
 | Param | Type | Description |
@@ -226,12 +229,12 @@ only allow certain interval qualities
 | ...quality | <code>char</code> | characters representing quality. 'm' = minor, 'M' = Major, 'P' = Perfect, 'd' = diminished, 'A' = augmented |
 
 <a name="allowedIntervalQualities"></a>
-## allowedIntervalQualities(...quality) ⇒ <code>filter</code>
+## allowedIntervalQualities(...quality) ⇒ <code>[filter](#filter)</code>
 filter generator that returns a filter which restricts the maximum
                             length of the construction
 
 **Kind**: global function  
-**Returns**: <code>filter</code> - a filter that limits the length of the construction  
+**Returns**: <code>[filter](#filter)</code> - a filter that limits the length of the construction  
 **Throws**:
 
 - Will throw an error if an argument is not a valid quality character
@@ -242,16 +245,28 @@ filter generator that returns a filter which restricts the maximum
 | ...quality | <code>char</code> | characters representing quality. 'm' = minor, 'M' = Major, 'P' = Perfect, 'd' = diminished, 'A' = augmented |
 
 <a name="maxLength"></a>
-## maxLength(max) ⇒ <code>filter</code>
+## maxLength(max) ⇒ <code>[filter](#filter)</code>
 filter generator that returns a filter which restricts the maximum
                             length of the construction
 
 **Kind**: global function  
-**Returns**: <code>filter</code> - a filter that limits the length of the construction  
+**Returns**: <code>[filter](#filter)</code> - a filter that limits the length of the construction  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | max | <code>number</code> | the maximum length (inclusive) of the                             desired construction |
+
+<a name="filter"></a>
+## filter(choices, construction) ⇒ <code>Array.&lt;string&gt;</code>
+a function that choices will be passed through
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - the choices with notes filtered out  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| choices | <code>Array.&lt;string&gt;</code> | the current choices as returned    by [choices](#GuidedMusicMachine+choices) |
+| construction | <code>Array.&lt;string&gt;</code> | the curent constrution as returned    by [construction](#GuidedMusicMachine+construction) |
 
 <a name="plusIntervalInKey"></a>
 ## plusIntervalInKey(key, sciPitch, intervalSize) ⇒ <code>String</code> &#124; <code>function</code>
