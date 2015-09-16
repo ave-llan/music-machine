@@ -42,7 +42,7 @@ Will not work if the object or array contains non-primitives.</p>
   * [.construction()](#GuidedMusicMachine+construction) ⇒ <code>Array.&lt;string&gt;</code>
   * [.tonic()](#GuidedMusicMachine+tonic)
   * [.isComplete()](#GuidedMusicMachine+isComplete) ⇒ <code>boolean</code>
-  * [.choose(pitch)](#GuidedMusicMachine+choose)
+  * [.choose(pitchChoice)](#GuidedMusicMachine+choose)
   * [.pop()](#GuidedMusicMachine+pop) ⇒ <code>string</code>
   * [.choices([nDeep])](#GuidedMusicMachine+choices) ⇒ <code>Array.&lt;string&gt;</code>
 
@@ -53,7 +53,7 @@ step-by-step construction of music from a predefined Music Machine
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| guide | <code>GuidedDecisionGraph</code> |  | a Guided Decision Graph. See: [GuidedDecisionGraph](https://github.com/jrleszcz/grammar-graph/blob/master/api.md#GuidedDecisionGraph) |
+| guide | <code>GuidedDecisionGraph</code> |  | a Guided Decision Graph. See: [GuidedDecisionGraph]{@link https://github.com/jrleszcz/grammar-graph/blob/master/api.md#GuidedDecisionGraph} |
 | [key] | <code>Key</code> | <code>&#x27;C major&#x27;</code> | the key in which to apply the generic interval. See [Key](https://github.com/jrleszcz/nmusic/blob/master/api.md#Key) |
 | [initialScaleDegrees] | <code>Array.&lt;number&gt;</code> | <code>[1]</code> | the scale degree(s) which constructions can start on |
 
@@ -87,14 +87,19 @@ nonterminal? ie, does the construction end in epsilon?
 **Kind**: instance method of <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>  
 **Returns**: <code>boolean</code> - is the construction complete  
 <a name="GuidedMusicMachine+choose"></a>
-### guidedMusicMachine.choose(pitch)
+### guidedMusicMachine.choose(pitchChoice)
 adds the given pitch to the construction
 
 **Kind**: instance method of <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>  
+**Throws**:
+
+- throws an error if pitchChoice is not in the
+     current set of [choices](#GuidedMusicMachine+choices)
+
 
 | Param | Type | Description |
 | --- | --- | --- |
-| pitch | <code>string</code> | a pitch string in the current set of next choices |
+| pitchChoice | <code>string</code> | a pitch string in the current set of next choices |
 
 <a name="GuidedMusicMachine+pop"></a>
 ### guidedMusicMachine.pop() ⇒ <code>string</code>
@@ -123,7 +128,8 @@ an array of nDeep length arrays of terminal choices
 <a name="TreeNode"></a>
 ## TreeNode
 **Kind**: global class  
-**See**: TreeNode returned from [GuidedDecisionGraph.choices](GuidedDecisionGraph#choices)  
+**See**: TreeNode returned from
+[GuidedDecisionGraph.choices](GuidedDecisionGraph#choices)  
 **Properties**
 
 | Name | Type | Description |
