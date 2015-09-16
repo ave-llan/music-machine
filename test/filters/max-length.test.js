@@ -65,6 +65,9 @@ test('filter: maxLength', function (t) {
   guide.addFilter(MusicMachine.filter.maxLength(2))
   t.deepEqual(guide.choices(), [])
   t.deepEqual(guide.choices(4), [])
+  t.throws(function () {
+    guide.choose('G2')
+  }, Error)
 
   guide.pop()
   t.deepEqual(guide.choices().sort(),
@@ -81,7 +84,13 @@ test('filter: maxLength', function (t) {
   guide.addFilter(MusicMachine.filter.maxLength(0))
   t.deepEqual(guide.choices(), [])
   t.deepEqual(guide.construction(), ['D3'])
+
   t.equal(guide.pop(), 'D3')
+
+  t.throws(function () {
+    guide.choose('D3')
+  }, Error)
+
   t.deepEqual(guide.choices(), [])
   t.deepEqual(guide.construction(), [])
 
