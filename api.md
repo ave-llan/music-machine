@@ -52,6 +52,7 @@ Will not work if the object or array contains non-primitives.</p>
   * [.choose(pitchChoice)](#GuidedMusicMachine+choose)
   * [.pop()](#GuidedMusicMachine+pop) ⇒ <code>string</code>
   * [.choices([nDeep])](#GuidedMusicMachine+choices) ⇒ <code>Array.&lt;string&gt;</code>
+  * [.constructs()](#GuidedMusicMachine+constructs) ⇒ <code>Array.&lt;string&gt;</code>
 
 <a name="new_GuidedMusicMachine_new"></a>
 ### new GuidedMusicMachine(guide, [key], [initialScaleDegrees])
@@ -132,6 +133,18 @@ an array of nDeep length arrays of terminal choices
 | --- | --- | --- | --- |
 | [nDeep] | <code>number</code> | <code>1</code> | will search for nDeep possible choices |
 
+<a name="GuidedMusicMachine+constructs"></a>
+### guidedMusicMachine.constructs() ⇒ <code>Array.&lt;string&gt;</code>
+Peak inside the machine and get a list of possible constructions
+at this point. Constructions are returned in the terms of the grammar,
+not as notes.
+
+**Kind**: instance method of <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>  
+**Returns**: <code>Array.&lt;string&gt;</code> - a list of possible constructions  
+**Example**  
+```js
+guide.constructs()  => ['2 3 -2 JupiterTheme -5 InfinitePhrase']
+```
 <a name="TreeNode"></a>
 ## TreeNode
 **Kind**: global class  
