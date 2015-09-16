@@ -7,24 +7,33 @@ This module is an extension of [grammar-graph](https://www.npmjs.com/package/gra
 
 An example definition in a grammar might be:
 ```
-Intone: 3 3 -2 -2 -2 -2
+Intone: 3 3 -2
 
 ```
-This means to move up a third, then up a third again, and then down a second four times.
+This means to move up a third, then up a third again, and then down a second.
 
 ```
-// construct Intone in C minor
- +3  +3 -2 -2  -2 -2
-C  Eb  G  F  Eb  D  C
+Intone in C minor:
+  +3    +3   -2
+C    Eb    G    F
 
-// construct Intone in D major
- +3  +3 -2 -2  -2 -2
-D  F#  A  G  F#  E  D
+Intone in D major:
+  +3    +3   -2
+D    F#    A    G
 ```
 
-Music-machine solves the problem of applying patterns to any key. If you instead want to define a musical grammar in terms of literal notes like this:
+Good music is often made up of just a few small patterns which are combined to make something bigger. For example, repeating `Intone` three times makes a nice sequence, so we might define `IntoneSequence` in terms of the already defined `Intone`:
 ```
-Jupiter: C5 D5 F5 E5
+IntoneSequence: Intone Intone Intone
+
+IntoneSequence in G major:
+ +3  +3  -2   +3   +3   -2    +3   +3   -2
+G   B   D   C    E    G    F#    A    C    B
+```
+
+Music-machine solves the more complicated problem of applying patterns to any key. If you instead want to define a musical grammar in terms of literal notes like this:
+```
+JupiterTheme: C5 D5 F5 E5
 ```
 You should use [grammar-graph](https://www.npmjs.com/package/grammar-graph) directly instead of this library.
 
