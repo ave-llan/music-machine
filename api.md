@@ -18,7 +18,8 @@
                             length of the construction</p>
 </dd>
 <dt><a href="#filter">filter(choices, construction)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
-<dd><p>a function that choices will be passed through</p>
+<dd><p>a user defined function that <a href="#GuidedMusicMachine+choices">choices</a>
+will be passed through, filtering out certain choices.</p>
 </dd>
 <dt><a href="#plusIntervalInKey">plusIntervalInKey(key, sciPitch, intervalSize)</a> ⇒ <code>String</code> | <code>function</code></dt>
 <dd><p>helper function that finds the result of adding a generic interval to a given pitch
@@ -258,7 +259,8 @@ filter generator that returns a filter which restricts the maximum
 
 <a name="filter"></a>
 ## filter(choices, construction) ⇒ <code>Array.&lt;string&gt;</code>
-a function that choices will be passed through
+a user defined function that [choices](#GuidedMusicMachine+choices)
+will be passed through, filtering out certain choices.
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - the choices with notes filtered out  
