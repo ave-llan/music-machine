@@ -2,9 +2,7 @@ Interactively generate music by defining a musical style in terms of [interval n
 
 ## Overview
 
-This module is an extension of [grammar-graph](https://www.npmjs.com/package/grammar-graph) built specifically to construct music from patterns of [interval numbers](https://en.wikipedia.org/wiki/Interval_(music)#Number) which can then be applied to any [key](https://en.wikipedia.org/wiki/Key_(music)) or [mode](https://en.wikipedia.org/wiki/Mode_(music)#Modern).
-
-This library enables patterns to be applied in any key. If you instead want to define a musical grammar in terms of literal notes, like the theme from [Mozart's Jupiter Symphony](https://www.youtube.com/watch?v=SiX3z_fOR5k),
+This library is an extension of [grammar-graph](https://www.npmjs.com/package/grammar-graph) which enables music patterns to be applied in any key or [mode](https://en.wikipedia.org/wiki/Mode_(music)#Modern). If you instead want to define a musical grammar in terms of literal notes, like the theme from [Mozart's Jupiter Symphony](https://www.youtube.com/watch?v=SiX3z_fOR5k),
 ```
 JupiterTheme: C D F E
 ```
@@ -23,17 +21,17 @@ JupiterTheme in C minor:
 C    D    F    Eb
 
 JupiterTheme in D major:
-  +3   +3   -2
+  +2   +3   -2
 D    E    G    F#
 ```
 
-Good music is often made up of just a few small patterns which are combined to make something bigger. For example, repeating `JupiterTheme` twice makes a nice sequence, so we might define `JupiterPattern` in terms of the already defined `JupiterTheme`:
+Good music is often made up of just a few small patterns which are combined to make something bigger. For example, repeating `JupiterTheme` twice makes a nice sequence, so we might define a `JupiterPattern` in terms of the already defined `JupiterTheme`. I will also add a final descending fifth at the end, just for fun:
 ```
-JupiterPattern: JupiterTheme  JupiterTheme
+JupiterPattern: JupiterTheme  JupiterTheme -5
 
 JupiterPattern in C major:
- +2  +3  -2   +2   +3   -2
-C   D   F   E    F    A    G
+ +2  +3  -2   +2   +3   -2   -5
+C   D   F   E    F    A    G    C
 ```
 
 
