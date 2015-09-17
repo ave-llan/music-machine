@@ -36,18 +36,16 @@ Install the npm module.
 npm install music-machine
 ```
 
-Require music-machine and input a grammar to define a style. The grammar format shown in the [overview](https://github.com/jrleszcz/music-machine#overview) is simplified, so see [grammar syntax](https://github.com/jrleszcz/grammar-graph#grammar) for details.
+Require music-machine and input a grammar to define a style. The grammar examples in [overview](https://github.com/jrleszcz/music-machine#overview) is simplified, so see [grammar syntax](https://github.com/jrleszcz/grammar-graph#grammar) for details.
 ```js
 var MusicMachine = require('music-machine')
 
 var jupiterGrammar = {
-  InfinitePhrase: [ 'JupiterTheme   InfinitePhrase',
-                    'JupiterPattern InfinitePhrase',
-                    'SecondTheme    InfinitePhrase' ],
-  JupiterPattern: [ 'JupiterTheme JupiterTheme -5' ],
-    JupiterTheme: [ '2 3 -2' ],
-     SecondTheme: [ '4 StepDown' ],
-        StepDown: [ '-2', '-2 StepDown']
+  InfinitePhrase: [ 'JupiterTheme InfinitePhrase',
+                    'SecondMotive InfinitePhrase', ],
+    JupiterTheme: [ '2  3  -2' ],
+    SecondMotive: [ '4  StepDown' ],
+        StepDown: [ '-2', '-2  StepDown']
 }
 ```
 Create a new MusicMachine by passing it the grammar along with the symbol at which to start the construction.
