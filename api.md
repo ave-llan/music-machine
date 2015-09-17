@@ -39,6 +39,20 @@ Will not work if the object or array contains non-primitives.</p>
 <dd><p>helper function to return a copy of .</p>
 </dd>
 </dl>
+## Typedefs
+<dl>
+<dt><a href="#SymbolChain">SymbolChain</a> : <code>string</code></dt>
+<dd><p>a string of one or more symbol names seperated by whitespace</p>
+</dd>
+<dt><a href="#MusicGrammar">MusicGrammar</a> : <code>Object</code></dt>
+<dd><p>a user defined context-free grammar formatted as an object consisting of key-value pairs,
+with each <a href="https://github.com/jrleszcz/grammar-graph#non-terminal-symbols">non-terminal symbol</a>
+pointing to an array of one or more <a href="https://github.com/jrleszcz/grammar-graph#symbol-chains">symbol chains</a>
+choices for this non-terminal. All <a href="https://github.com/jrleszcz/grammar-graph#terminal-symbols">terminals</a>
+must be positive or negative numbers, representing musical intervals. Said another way, anything that is not
+a number must have its own definition.</p>
+</dd>
+</dl>
 <a name="GuidedMusicMachine"></a>
 ## GuidedMusicMachine
 **Kind**: global class  
@@ -189,7 +203,7 @@ creates a new MusicMachine which can generate Guides for music construction.
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| grammar | <code>object</code> |  | an object representing a musical grammar. |
+| grammar | <code>[MusicGrammar](#MusicGrammar)</code> |  | an object representing a musical grammar. |
 | startSymbol | <code>string</code> |  | the symbol at which to start constructions |
 | [initialScaleDegrees] | <code>Array.&lt;number&gt;</code> | <code>[1]</code> | the scale degree(s) which constructions can start on |
 
@@ -365,3 +379,44 @@ array sorted from low pitch to high pitch
 | --- | --- | --- |
 | pitches | <code>Array.&lt;string&gt;</code> | an array of pitch strings |
 
+<a name="SymbolChain"></a>
+## SymbolChain : <code>string</code>
+a string of one or more symbol names seperated by whitespace
+
+**Kind**: global typedef  
+**See**: a SymbolChain is used as definitions in [MusicGrammar](#MusicGrammar)  
+**Example**  
+```js
+'4'                          // just a single symbol, means to go up a fourth
+'5  -3'                      // go up a fifth, then down a third
+'JupiterTheme  4  -2'        // play the JupiterTheme (which will be defined in another definition),
+                             // then go up a fourth, then down a second
+```
+<a name="MusicGrammar"></a>
+## MusicGrammar : <code>Object</code>
+a user defined context-free grammar formatted as an object consisting of key-value pairs,
+with each [non-terminal symbol](https://github.com/jrleszcz/grammar-graph#non-terminal-symbols)
+pointing to an array of one or more [symbol chains](https://github.com/jrleszcz/grammar-graph#symbol-chains)
+choices for this non-terminal. All [terminals](https://github.com/jrleszcz/grammar-graph#terminal-symbols)
+must be positive or negative numbers, representing musical intervals. Said another way, anything that is not
+a number must have its own definition.
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| symbol | <code>[Array.&lt;SymbolChain&gt;](#SymbolChain)</code> | each element of the array is a possible definition    for this symbol. |
+
+**Example**  
+```js
+var jupiterGrammar = {
+InfinitePhrase: [ 'JupiterTheme InfinitePhrase',      // InfinitePhrase has two possible definitions
+                 'SecondMotive InfinitePhrase' ],
+  JupiterTheme: [ '2  3  -2' ],                       // JupiterTheme has only one definition
+  SecondMotive: [ '4  StepDown' ],
+      StepDown: [ '-2', '-2  StepDown']
+}
+// non-terminals: InfinitePhrase, JupiterTheme, SecondMotive, StepDown
+//     terminals: -2, 2, 3, 4
+```
