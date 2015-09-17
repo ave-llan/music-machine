@@ -63,30 +63,65 @@ Recursive definitions are what make a grammar interesting and powerful, and ensu
 Do not define a non-terminal to equal only itself.  This will not work: `Infinity: ['Infinity']`. MusicMachine must be able to reach a non-terminal (interval) from any point in the grammar.
 
 
-## Example
+## MusicMachine.createGuide example
 
 Install the npm module.
 ```
 npm install music-machine
 ```
 
-Require music-machine and input a musical grammar to define a style. The grammar examples in [overview](https://github.com/jrleszcz/music-machine#overview) are simplified, so see [grammar syntax](https://github.com/jrleszcz/grammar-graph#grammar) for details.
+Create a MusicMachine by passing it a music grammar and the name of a symbol to start at.
 ```js
 var MusicMachine = require('music-machine')
 
-var jupiterGrammar = {
-  InfinitePhrase: [ 'JupiterTheme InfinitePhrase',
-                    'SecondMotive InfinitePhrase' ],
-    JupiterTheme: [ '2  3  -2' ],
-    SecondMotive: [ '4  StepDown' ],
-        StepDown: [ '-2', '-2  StepDown']
-}
-```
-Create a new MusicMachine by passing it the grammar along with the symbol at which to start the construction.
-```js
-var machine = new MusicMachine(jupiterGrammar, 'InfinitePhrase')
+var jupiterMachine = new MusicMachine(jupiterGrammar, 'InfinitePhrase')
 ```
 
+Use MusicMachine to create a new guide, specifiying a key.
+```
+var guide = jupiterMachine.createGuide('C major')
+```
+
+Get the choices for the first note. By default, the guide will start on scale degree 1 of the key you picked.  This can be configured when creating the MusicMachine by adding an array of scale degree numbers as a third parameter: `new MusicMachine(jupiterGrammar, 'InfinitePhrase', [1, 5])`.
+```js
+guide.choices()    => [ 'C' ]
+```
+
+The first choice will be given without an octave number, but you can specify one like so when you make your choice:
+```js
+guide.choose('C5')
+```
+If you do not provide on octave number, it will default to octave 4.
+
+
+Looking at our next set of choices, we now have an option:
+```js
+guide.choices()       => [ 'D5', 'F5' ]
+```
+
+Let's choose `D5` and take a peek at our construction so far:
+```js
+guide.choose('D5')
+guide.construction()  => [ 'C5', 'D5' ]
+```
+
+There is only choice for the next few notes as we are on the `JupiterTheme` route in the grammar.
+```
+guide.choices()   =>  [ 'F5' ]
+guide.choose('F5')
+
+guide.choices()   =>  [ 'E5' ]
+guide.choose('F5')
+
+guide.choices()   =>  [ 'F5', 'A5' ]
+```
+
+At any point, you can also check the possible set of raw constructs from the grammar that could have led us to this point:
+```js
+guide.constructs()    => [ '2 3 -2 2 3 -2 InfinitePhrase',
+                           '2 3 -2 4 StepDown InfinitePhrase' ]
+guide.construction()  => [ 'C5', 'D5', 'F5', 'E5' ]
+```
 
 
 ## Filters
