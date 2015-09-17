@@ -49,16 +49,16 @@ A rule simply means to replace a symbol with its definition. If we are making mu
 More formally, a grammar is an object consisting of key-value pairs, with each [non-terminal symbol](https://github.com/jrleszcz/music-machine#non-terminal-symbols) pointing to an array of one or more [symbol chains](https://github.com/jrleszcz/music-machine#symbol-chains) choices for this non-terminal. [See here](https://github.com/jrleszcz/grammar-graph#grammar) for an example of a non-musical grammar in the same format that builds text creatures.
 
 #### Symbol Chains
-`2  3  -2` and `4  StepDown` are symbol chains. Each symbol is seperated by white-space, so the first symbol chain is made up of three symbols: `2, 3, -2`. Tthe second has two: `4, StepDown`.
+`2  3  -2` and `4  StepDown` are symbol chains. Each symbol is seperated by white-space, so the first symbol chain is made up of three symbols: `2, 3, -2`.
 
 #### Terminal Symbols
-If a symbol has no definition in the grammar, it is a terminal. In a music grammar, **terminals must be numbers** representing intervals. The four terminal symbols in `jupiterGrammar` are: `-2, 2, 3, 4`.
+If a symbol has no definition in the grammar, it is a terminal. In a music grammar, **terminals must be numbers** representing intervals. The four terminal symbols in the example are: `-2, 2, 3, 4`.
 
 #### Non-terminal Symbols
-If a symbol has a definition in the grammar, it is non-terminal and can be broken down further. A non-terminal's definition is an array of one or more symbol chains indicating possible choices for this rule. The four non-terminal symbols in `jupiterGrammar` are: `InfinitePhrase, JupiterTheme, SecondMotive, StepDown`.
+If a symbol has a definition in the grammar, it is non-terminal and can be broken down further. A non-terminal's definition is an array of one or more symbol chains indicating possible choices for this rule. The four non-terminal symbols in the example are: `InfinitePhrase, JupiterTheme, SecondMotive, StepDown`.
 
 #### Recursive definitions
-Recursive definitions are what make a grammar interesting and powerful. One recursive definition in our example is: `StepDown: [ '-2', '-2  StepDown']`. This allows us to either move `-2` once if we immediately choose the first option, or to descend infinitely if we always choose the second option. The most conspicuous recursive symbol is: `InfinitePhrase: [ 'JupiterTheme InfinitePhrase', 'SecondMotive InfinitePhrase' ]`.  Both of these definitions ensure that the music will never stop.
+Recursive definitions are what make a grammar interesting and powerful, and ensure that the music will never stop. One recursive definition in our example is: `StepDown: [ '-2', '-2  StepDown']`. This allows us to either move `-2` once if we immediately choose the first option, or to descend infinitely if we always choose the second option. The most conspicuous recursive symbol is: `InfinitePhrase: [ 'JupiterTheme InfinitePhrase', 'SecondMotive InfinitePhrase' ]`.  Both of these definitions lead right back to `InfinitePhrase` and so will go on and on no matter which option we choose.
 
 Do not define a non-terminal to equal only itself.  This will not work: `Infinity: ['Infinity']`. MusicMachine must be able to reach a non-terminal (interval) from any point in the grammar.
 
