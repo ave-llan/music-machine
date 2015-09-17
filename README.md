@@ -31,40 +31,37 @@ C   D   F   E    F    A    G    C
 
 
 ## Music Grammar
-A context-free grammar is a list of rules. Let's examine a music grammar that uses the Jupiter theme:
+A music grammar is a list of rules in an object. Let's examine a grammar that uses the Jupiter theme:
 ```js
 var jupiterGrammar = {
   InfinitePhrase: [ 'JupiterTheme InfinitePhrase',
                     'SecondMotive InfinitePhrase' ],
     JupiterTheme: [ '2  3  -2' ],
     SecondMotive: [ '4  StepDown' ],
-        StepDown: [ '-2', '-2  StepDown']
+        StepDown: [ '-2',
+                    '-2  StepDown']
 }
 ```
 
 #### Rules
-A rule simply means to replace a word like `JupiterTheme` with its definition. If we are constructing a sentence with `jupiterGrammar` and come across the symbol `JupiterTheme`, we will replace it with its definition: `2 3 -2`. Some rules have multiple options, such as `StepDown` which can be rewritten as `-2` or `-2  StepDown`.
+A rule simply means to replace a word like `JupiterTheme` with its definition. If we are making music with `jupiterGrammar` and come across the symbol `JupiterTheme`, we will replace it with its definition: `2 3 -2`. Some rules have multiple options, such as `StepDown` which can be rewritten as `-2` or `-2  StepDown`.
 
 More formally, a grammar is an object consisting of key-value pairs, with each [non-terminal symbol](https://github.com/jrleszcz/music-machine#non-terminal-symbols) pointing to an array of one or more [symbol chains](https://github.com/jrleszcz/music-machine#symbol-chains) choices for this non-terminal. [See here](https://github.com/jrleszcz/grammar-graph#grammar) for an example of a non-musical grammar in the same format that builds text creatures.
 
 #### Symbol Chains
-`2  3  -2` and `4  StepDown` are symbol chains. Each symbol is seperated by white-space, so the first symbol chain is made up of three symbols: `2, 3, -2`, and the second has two: `4, StepDown`.
+`2  3  -2` and `4  StepDown` are symbol chains. Each symbol is seperated by white-space, so the first symbol chain is made up of three symbols: `2, 3, -2`. Tthe second has two: `4, StepDown`.
 
 #### Terminal Symbols
 If a symbol has no definition in the grammar, it is a terminal. In a music grammar, **terminals must be numbers** representing intervals. The four terminal symbols in `jupiterGrammar` are: `-2, 2, 3, 4`.
 
 #### Non-terminal Symbols
-If a symbol has a definition in the grammar, it is non-terminal and can be broken down further. A non-terminal's definition is an array of one or more symbol chains indicating possible choices for this rule.
-```
-{
-  RuleName: ['I am this', 'or this', 'or could be this'],
- RuleName2: ['I mean only one thing']
-}
-```
+If a symbol has a definition in the grammar, it is non-terminal and can be broken down further. A non-terminal's definition is an array of one or more symbol chains indicating possible choices for this rule. The four non-terminal symbols in `jupiterGrammar` are: `InfinitePhrase, JupiterTheme, SecondMotive, StepDown`.
+
 #### Recursive definitions
-Recursive definitions are what make a grammar interesting and powerful. One recursive definition in `jupiterGrammar` is: `StepDown: [ '-2', '-2  StepDown']`. This allows us to either move down a second once if we immediately choose the first option, or to descend infinitely if we always choose the second option. The most conspicuous recursive definition is: `InfinitePhrase: [ 'JupiterTheme InfinitePhrase', 'SecondMotive InfinitePhrase' ]`.  Both of these definitions ensure that the music will never stop.
+Recursive definitions are what make a grammar interesting and powerful. One recursive definition in our example is: `StepDown: [ '-2', '-2  StepDown']`. This allows us to either move `-2` once if we immediately choose the first option, or to descend infinitely if we always choose the second option. The most conspicuous recursive symbol is: `InfinitePhrase: [ 'JupiterTheme InfinitePhrase', 'SecondMotive InfinitePhrase' ]`.  Both of these definitions ensure that the music will never stop.
 
 Do not define a non-terminal to equal only itself.  This will not work: `Infinity: ['Infinity']`. MusicMachine must be able to reach a non-terminal (interval) from any point in the grammar.
+
 
 ## Example
 
