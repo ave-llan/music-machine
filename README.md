@@ -44,7 +44,7 @@ var jupiterGrammar = {
 ```
 
 #### Rules
-A rule simply means to replace a word like `JupiterTheme` with its definition. If we are making music with `jupiterGrammar` and come across the symbol `JupiterTheme`, we will replace it with its definition: `2 3 -2`. Some rules have multiple options, such as `StepDown` which can be rewritten as `-2` or `-2  StepDown`.
+A rule simply means to replace a symbol with its definition. If we are making music and come across the symbol `JupiterTheme`, we will replace it with its definition: `2 3 -2`. Some rules have multiple options, such as `StepDown` which can be rewritten as `-2` or `-2  StepDown`.
 
 More formally, a grammar is an object consisting of key-value pairs, with each [non-terminal symbol](https://github.com/jrleszcz/music-machine#non-terminal-symbols) pointing to an array of one or more [symbol chains](https://github.com/jrleszcz/music-machine#symbol-chains) choices for this non-terminal. [See here](https://github.com/jrleszcz/grammar-graph#grammar) for an example of a non-musical grammar in the same format that builds text creatures.
 
