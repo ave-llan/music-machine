@@ -82,10 +82,11 @@ Use MusicMachine to create a new guide, specifiying a key.
 var guide = jupiterMachine.createGuide('C major')
 ```
 
-Get the choices for the first note. By default, the guide will start on scale degree 1 of the key you picked.  This can be configured when creating the MusicMachine by adding an array of scale degree numbers as a third parameter: `new MusicMachine(jupiterGrammar, 'InfinitePhrase', [1, 5])`.
+Get the choices for the first note.
 ```js
 guide.choices()    => [ 'C' ]
 ```
+By default, the guide will start on scale degree 1 of the key you picked.  This can be configured when creating the MusicMachine by adding an array of scale degree numbers as a third parameter: `new MusicMachine(jupiterGrammar, 'InfinitePhrase', [1, 5])`.
 
 The first choice will be given without an octave number, but you can specify one like so when you make your choice:
 ```js
@@ -105,13 +106,13 @@ guide.choose('D5')
 guide.construction()  => [ 'C5', 'D5' ]
 ```
 
-There is only choice for the next few notes as we are on the `JupiterTheme` route in the grammar.
+There is only one possible note for the next few choices as we are on the `JupiterTheme` route in the grammar.
 ```
 guide.choices()   =>  [ 'F5' ]
 guide.choose('F5')
 
 guide.choices()   =>  [ 'E5' ]
-guide.choose('F5')
+guide.choose('E5')
 
 guide.choices()   =>  [ 'F5', 'A5' ]
 ```
@@ -123,6 +124,7 @@ guide.constructs()    => [ '2 3 -2 2 3 -2 InfinitePhrase',
 guide.construction()  => [ 'C5', 'D5', 'F5', 'E5' ]
 ```
 
+[add example of calling nDeep on choices]
 
 ## Filters
 [this section will be expanded]
