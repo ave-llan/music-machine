@@ -203,7 +203,7 @@ var avoidPreviousNote = function (choices, construction) {
 guide.choices()        => [ 'F5', 'A5', 'D5' ]
 guide.construction()   => [ 'C5', 'D5', 'F5', 'E5', 'A5', 'G5', 'F5', 'E5' ]
                                                                  ^ // filter this note
-// after adding filter
+// add the filter
 guide.addFilter(avoidPreviousNote)
 guide.choices()        => [ 'A5', 'D5' ]
 ```
