@@ -45,6 +45,7 @@
     "tape": "^4.2.0"
   },
   "dependencies": {
+    "deepcopy": "^0.5.0",
     "grammar-graph": "^3.0.0",
     "nmusic": "^0.2.1"
   }

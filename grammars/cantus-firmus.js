@@ -1,4 +1,4 @@
-var clone = require('../lib/utils/clone.js')
+var deepcopy = require('deepcopy')
 
 /*
  * define grammar in only one direction here, and then reverse
@@ -27,10 +27,10 @@ var cfGrammar = {
 
 for (var def in upwardOnly) {
   // add upward phrase as is
-  cfGrammar[def] = clone(upwardOnly[def])
+  cfGrammar[def] = deepcopy(upwardOnly[def])
 
   // reverse downward/upward and make positive numbers negative
-  var downwardDef = clone(upwardOnly[def]).map(function (definition) {
+  var downwardDef = deepcopy(upwardOnly[def]).map(function (definition) {
     return definition.split(' ').map(function (symbol) {
       if (symbol.indexOf('Downward') > -1) {
         return symbol.replace('Downward', 'Upward')
