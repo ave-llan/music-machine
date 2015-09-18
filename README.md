@@ -168,8 +168,8 @@ Filters allow you to further refine a musical style. MusicMachine has some ready
 guide.choices()        =>  [ 'G5', 'B5', 'E5' ]
 // F5 -> B5 is an augmented fourth (A4)
 
-var intervalQualities = MusicMachine.filter.allowedIntervalQualities('M', 'm', 'P')
-guide.addFilter(intervalQualities)
+var limitQualities = MusicMachine.filter.allowedIntervalQualities('M', 'm', 'P')
+guide.addFilter(limitQualities)
 
 guide.choices()        =>  [ 'G5', 'E5' ]   // B5 is removed from choices
 guide.choose('E5')
@@ -177,22 +177,25 @@ guide.choose('E5')
 
 Once a filter is applied, it will affect all future choices with this machine. You can also apply filters to a MusicMachine instance directly, and all guides created with that machine will have the filters applied.
 
-It is easy to create custom filters. Your filter function will be passed the current list of choices and the current construction, and it should return the choices that pass the filter.
+It is easy to create custom filters. Your filter function will be passed the current list of choices and the current construction, and it should return the choices that pass the filter. Here is a filter which does not allow going right back to a note after leaving it:
 ```js
-// does not allow returning to the note before the last note
+// do not allow returning to a note right after leaving it
 // if construction is [C4, D4], do not allow going back to C4
 var avoidPreviousNote = function (choices, construction) {
   if (construction.length < 2) return choices   // filter does note apply
-
-  var previousNote = construction[construction.length - 2]
-  return choices.filter(function (choice) {
-    return choice !== previousNote
-  })
+  else {
+    var previousNote = construction[construction.length - 2]
+    return choices.filter(function (choice) {
+      return choice !== previousNote
+    })
+  }
 }
 
+// before adding filter
+guide.choices()        => [ 'F5', 'A5', 'D5' ]
 guide.construction()   => [ 'C5', 'D5', 'F5', 'E5', 'A5', 'G5', 'F5', 'E5' ]
                                                                  ^ // filter this note
-guide.choices()        => [ 'F5', 'A5', 'D5' ]
+// after adding filter
 guide.addFilter(avoidPreviousNote)
 guide.choices()        => [ 'A5', 'D5' ]
 ```
