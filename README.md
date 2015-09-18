@@ -11,6 +11,7 @@ guide.construction()    =>
 guide.choices()         => [ 'A3', 'F3', 'E3', 'Bb2', 'C3', 'D3' ]
 guide.choose('Bb2')
 
+// after a large leap of a sixth from D3 -> Bb2, the grammar limits our choices
 guide.choices()         => [ 'C3', 'D3' ]
 guide.choose('C3')
 
