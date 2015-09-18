@@ -124,10 +124,45 @@ guide.constructs()    => [ '2 3 -2 2 3 -2 InfinitePhrase',
 guide.construction()  => [ 'C5', 'D5', 'F5', 'E5' ]
 ```
 
-[add example of calling nDeep on choices]
+You can optionally provide `guide.choices()` with a number indicating the depth of choices you want. If you request a depth greater than 1, instead of an array of strings, it will return an array of TreeNodes which are each at most nDeep. Each TreeNode is an object with a `val` property and a `next` property which points to an array of more TreeNodes.
+```js
+guide.choices()   => [ 'F5', 'A5' ]
+guide.choices(3)  =>
+[
+  {
+    val: 'F5',                        // F5
+    next: [
+      {
+        val: 'A5',                    // F5, A5
+        next: [
+          {val: 'G5', next: []}       // F5, A5, G5
+        ]
+      }
+    ]
+  },
+  {
+    val: 'A5',                        // A5
+    next: [
+      {
+        val: 'G5',                    // A5, G5
+        next: [
+          {val: 'A5', next: []},      // A5, G5, A5
+          {val: 'C6', next: []},      // A5, G5, C6
+          {val: 'F5', next: []}       // A5, G5, F5
+        ]
+      }
+    ]
+  }
+]
+```
+
+You can also submit multiple choices in an array.
+```js
+guide.choose(['A5', 'G5', 'F5'])
+guide.construction()   =>  [ 'C5', 'D5', 'F5', 'E5', 'A5', 'G5', 'F5' ]
+```
 
 ## Filters
-[this section will be expanded]
 For your convenience, you can pass filters to instances of MusicMachine or GuidedMusicMachine which reduce the number of choices. For example, you might want to pass a guide a filter that limits a construction to a total range of a 10th.
 
 ## Docs
