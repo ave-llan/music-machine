@@ -93,12 +93,10 @@ var guide = jupiterMachine.createGuide('C major')
 guide.choices()    => [ 'C', 'G' ]
 ```
 
-The first choice will be given without an octave number, but you can specify one like so when you make your choice:
+The first choice will be given without an [octave number](https://en.wikipedia.org/wiki/Scientific_pitch_notation#Octave_number), but you can specify one when you make your choice. If you do not provide on octave number, it will default to octave 4.
 ```js
-guide.choose('C5')
+guide.choose('C5')  // pick C in octave 5
 ```
-If you do not provide on octave number, it will default to octave 4.
-
 
 Looking at our next set of choices, we now have an option:
 ```js
