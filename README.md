@@ -208,6 +208,7 @@ guide.addFilter(avoidPreviousNote)
 guide.choices()        => [ 'A5', 'D5' ]
 ```
 
+To create more complicated filters, you may wish to use a library like [nmusic](https://www.npmjs.com/package/nmusic) which can parse pitch strings and analyze pitch relations.
 
 ## Docs
 [View the api documentation here.](api.md)
