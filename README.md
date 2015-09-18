@@ -177,6 +177,9 @@ guide.choose('E5')
 
 Once a filter is applied, it will affect all future choices with this machine. You can also apply filters to a MusicMachine instance directly, and all guides created with that machine will have the filters applied.
 
+See [MusicMachine.filter](https://github.com/jrleszcz/music-machine/blob/master/api.md#MusicMachine.filter) for a list of provided filter generators.
+
+## Custom Filters
 It is easy to create custom filters. Your filter function will be passed the current list of choices and the current construction, and it should return the choices that pass the filter. Here is a filter which does not allow going right back to a note after leaving it:
 ```js
 // do not allow returning to a note right after leaving it
