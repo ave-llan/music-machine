@@ -87,7 +87,7 @@ add a filter to the guide that will filter chioces based on the construction
 
 | Param | Type | Description |
 | --- | --- | --- |
-| filter | <code>[filter](#filter)</code> | a filter function that returns valid choices |
+| filter | <code>[filter](#filter)</code> | a callback filter function that returns valid choices |
 
 <a name="GuidedMusicMachine+construction"></a>
 ### guidedMusicMachine.construction() ⇒ <code>Array.&lt;string&gt;</code>
@@ -221,7 +221,7 @@ add a filter to the guide that will filter chioces based on the construction
 
 | Param | Type | Description |
 | --- | --- | --- |
-| filter | <code>[filter](#filter)</code> | a filter function that returns valid choices |
+| filter | <code>[filter](#filter)</code> | a callback filter function that returns valid choices |
 
 <a name="MusicMachine+createGuide"></a>
 ### musicMachine.createGuide([key]) ⇒ <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>
