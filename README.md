@@ -1,7 +1,7 @@
-Create music by defining a musical style with a generative [context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar).
+Create music by defining a musical style. Describe style's syntax with a generative [context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar).
 
-## Purpose
-Define a musical style and generate music using an interactive guide. The guide will give you a list of possible choices at each step. As an example, here is an in-progress guide which is using a grammar that follows [counterpoint rules](http://hum.uchicago.edu/classes/zbikowski/species.html).
+## Example
+A music-machine guide will give you a list of possible next notes at each step. As an example, here is an in-progress guide which is using a grammar that follows [counterpoint rules](http://hum.uchicago.edu/classes/zbikowski/species.html).
 ```js
 // guide is in-progress. This is what we have built so far:
 guide.construction()    =>
