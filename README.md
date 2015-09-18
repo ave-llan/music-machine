@@ -86,7 +86,12 @@ Get the choices for the first note.
 ```js
 guide.choices()    => [ 'C' ]
 ```
-By default, the guide will start on scale degree 1 of the key you picked.  This can be configured when creating the MusicMachine by adding an array of scale degree numbers as a third parameter: `new MusicMachine(jupiterGrammar, 'InfinitePhrase', [1, 5])`.
+By default, the guide will start on scale degree 1 of the key you picked.  This can be configured when creating the MusicMachine by adding an optional array of scale degree numbers as a third parameter:
+```js
+var jupiterMachine = new MusicMachine(jupiterGrammar, 'InfinitePhrase', [1, 5])
+var guide = jupiterMachine.createGuide('C major')
+guide.choices()    => [ 'C', 'G' ]
+```
 
 The first choice will be given without an octave number, but you can specify one like so when you make your choice:
 ```js
