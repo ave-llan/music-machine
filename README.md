@@ -93,12 +93,13 @@ var guide = jupiterMachine.createGuide('C major')
 guide.choices()    => [ 'C', 'G' ]
 ```
 
-The first choice will be given without an [octave number](https://en.wikipedia.org/wiki/Scientific_pitch_notation#Octave_number), but you can specify one when you make your choice. If you do not provide on octave number, it will default to octave 4.
+The first set of choices will be given without an [octave number](https://en.wikipedia.org/wiki/Scientific_pitch_notation#Octave_number), but you can specify one when you make your choice. If you do not provide on octave number, it will default to octave 4.
 ```js
-guide.choose('C5')  // pick C in octave 5
+// pick C in octave 5
+guide.choose('C5')
 ```
 
-Looking at our next set of choices, we now have an option:
+Looking at our next set of choices, we now have two options:
 ```js
 guide.choices()       => [ 'D5', 'F5' ]
 ```
@@ -180,7 +181,7 @@ guide.choose('E5')
 
 Once a filter is applied, it will affect all future choices with this machine. You can also apply filters to a MusicMachine instance directly, and all guides created with that machine will have the filters applied.
 
-See [MusicMachine.filter](https://github.com/jrleszcz/music-machine/blob/master/api.md#MusicMachine.filter) for a list of provided filter generators.
+See [MusicMachine.filter](https://github.com/jrleszcz/music-machine/blob/master/api.md#MusicMachine.filter) for a list of provided filter generators -- you can use as many filters as you'd like.
 
 ## Custom Filters
 It is easy to create custom filters. Your filter function will be passed the current list of choices and the current construction, and it should return the choices that pass the filter. Here is a filter which does not allow going right back to a note after leaving it:
@@ -188,12 +189,13 @@ It is easy to create custom filters. Your filter function will be passed the cur
 // do not allow returning to a note right after leaving it
 // if construction is [C4, D4], do not allow going back to C4
 var avoidPreviousNote = function (choices, construction) {
-  if (construction.length < 2) return choices   // filter does note apply
+  if (construction.length < 2) return choices   // filter does not apply
   else {
     var previousNote = construction[construction.length - 2]
-    return choices.filter(function (choice) {
+    var filtered = choices.filter(function (choice) {
       return choice !== previousNote
     })
+    return filtered
   }
 }
 
