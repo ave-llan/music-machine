@@ -63,7 +63,7 @@ Recursive definitions are what make a grammar interesting and powerful, and ensu
 Do not define a non-terminal to equal only itself.  This will not work: `Infinity: ['Infinity']`. MusicMachine must be able to reach a non-terminal (interval) from any point in the grammar.
 
 
-## MusicMachine.createGuide example
+## Tutorial
 
 Install the npm module.
 ```
