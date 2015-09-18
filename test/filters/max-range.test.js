@@ -2,7 +2,7 @@ var test = require('tape')
 var MusicMachine = require('../../lib/music-machine.js')
 var cfGrammar = require('../../grammars/cantus-firmus.js')
 
-test('filter: maxLength', function (t) {
+test('filter: maxRange', function (t) {
   var machine = new MusicMachine(cfGrammar, 'Start')
 
   var guide = machine.createGuide('B minor')
