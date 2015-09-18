@@ -1,4 +1,4 @@
-Interactively generate music by defining a musical style in terms of [interval numbers](https://en.wikipedia.org/wiki/Interval_(music)#Number) in a [context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar).
+Create music by defining a musical style with a generative [context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar).
 
 ## Purpose
 Define a musical style and generate music using an interactive guide. The guide will give you a list of possible choices at each step:
