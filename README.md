@@ -3,7 +3,28 @@ Interactively generate music by defining a musical style in terms of [interval n
 ## Purpose
 Define a musical style and generate music using an interactive guide. The guide will give you a list of possible choices at each step:
 ```
-guide.choices()   => ['C4', 'D4', 'G4']
+// an in progress guide using a species counterpoint grammar
+guide.construction()    =>
+[ 'D3', 'E3', 'F3', 'C3', 'D3', 'F3', 'E3', 'G3']
+
+
+guide.choices()         => [ 'A3', 'F3', 'E3', 'Bb2', 'C3', 'D3' ]
+guide.choose('Bb2')
+
+guide.choices()         => [ 'C3', 'D3' ]
+guide.choose('C3')
+
+guide.choices()         => [ 'D3', 'E3', 'F3', 'G3', 'Bb2' ]
+guide.choose('F3')
+
+guide.choices()         => [ 'E3', 'D3' ]
+guide.choose('E3')
+
+guide.choices()         => [ 'F3', 'G3', 'C3', 'D3' ]
+guide.choose('D3')
+
+guide.construction()    =>
+[ 'D3', 'E3', 'F3', 'C3', 'D3', 'F3', 'E3', 'G3', 'Bb2', 'C3', 'F3', 'E3', 'D3']
 ```
 
 ## Overview
