@@ -1,6 +1,6 @@
 {
   "name": "music-machine",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "generates music using your provided context-free grammar",
   "main": "./lib/music-machine.js",
   "scripts": {
