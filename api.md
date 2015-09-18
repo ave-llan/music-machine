@@ -121,7 +121,7 @@ adds the given pitch to the construction
 
 | Param | Type | Description |
 | --- | --- | --- |
-| pitchChoice | <code>string</code> | a pitch string in the current set of next choices |
+| pitchChoice | <code>string</code> &#124; <code>Array.&lt;string&gt;</code> | a pitch string in the current set of next choices or an array of choices to be applied sequentially |
 
 <a name="GuidedMusicMachine+pop"></a>
 ### guidedMusicMachine.pop() ⇒ <code>string</code>
@@ -237,8 +237,8 @@ get a new GuidedMusicMachine using this decision graph
 
 <a name="MusicMachine.filter"></a>
 ### MusicMachine.filter
-a collection of filter generators that generate filters
-to be passed to [addFilter](#MusicMachine+addFilter)
+a collection of filter generators that generate filter callback functions
+intended to be passed to [addFilter](#MusicMachine+addFilter) or [addFilter](#GuidedMusicMachine+addFilter)
 
 **Kind**: static property of <code>[MusicMachine](#MusicMachine)</code>  
 
