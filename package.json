@@ -1,7 +1,7 @@
 {
   "name": "music-machine",
   "version": "1.0.0",
-  "description": "generates music using your provided context-free grammar",
+  "description": "generate music using a context-free grammar",
   "main": "./lib/music-machine.js",
   "scripts": {
     "test": "standard && tape \"test/**/*.test.js\" | faucet",
