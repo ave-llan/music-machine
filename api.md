@@ -31,10 +31,6 @@ in the context of a key</p>
 <p>Optionally, exclude the intervalSize parameter and get back a curried function
 with the key and startPitch set as defaults.</p>
 </dd>
-<dt><a href="#clone">clone(obj)</a> ⇒ <code>object</code> | <code>array</code></dt>
-<dd><p>helper function to clone a simple object/array made up of primitives.
-Will not work if the object or array contains non-primitives.</p>
-</dd>
 <dt><a href="#sortPitches">sortPitches(pitches)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
 <dd><p>helper function to return a copy of .</p>
 </dd>
@@ -136,12 +132,12 @@ submitted through [choose](#GuidedMusicMachine+choose)
 
 <a name="GuidedMusicMachine+choices"></a>
 ### guidedMusicMachine.choices([nDeep]) ⇒ <code>Array.&lt;string&gt;</code>
-returns all possible next pitches. Some chains may
-have a length less than nDeep if that chain ends in epsilon.
+returns an array of all possible next pitches, or an array of
+nDeep [TreeNodes](TreeNodes).
 
 **Kind**: instance method of <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>  
 **Returns**: <code>Array.&lt;string&gt;</code> - if nDeep=1, an array of pitch strings, else
-an array of nDeep length arrays of terminal choices  
+an array of nDeep [TreeNodes](TreeNodes)  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -354,18 +350,6 @@ returns a function with the given argument set as a default.
 | key | <code>string</code> | the key in which to apply the generic interval. Must be a valid pitch string and mode name seperated by whitespace such as 'Bb major' or 'Db dorian' |
 | sciPitch | <code>string</code> | a pitch in scientific pitch notation. |
 | intervalSize | <code>number</code> | an interval string or number with or without quality. If quality is not provided, accidentals on given pitch will be ignored. |
-
-<a name="clone"></a>
-## clone(obj) ⇒ <code>object</code> &#124; <code>array</code>
-helper function to clone a simple object/array made up of primitives.
-Will not work if the object or array contains non-primitives.
-
-**Kind**: global function  
-**Returns**: <code>object</code> &#124; <code>array</code> - a new clone of the provided object or array  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| obj | <code>object</code> &#124; <code>array</code> | an object array made up only of primitives |
 
 <a name="sortPitches"></a>
 ## sortPitches(pitches) ⇒ <code>Array.&lt;string&gt;</code>
