@@ -133,11 +133,11 @@ submitted through [choose](#GuidedMusicMachine+choose)
 <a name="GuidedMusicMachine+choices"></a>
 ### guidedMusicMachine.choices([nDeep]) ⇒ <code>Array.&lt;string&gt;</code>
 returns an array of all possible next pitches, or an array of
-nDeep [TreeNodes](TreeNodes).
+nDeep [TreeNodes](#TreeNode).
 
 **Kind**: instance method of <code>[GuidedMusicMachine](#GuidedMusicMachine)</code>  
 **Returns**: <code>Array.&lt;string&gt;</code> - if nDeep=1, an array of pitch strings, else
-an array of nDeep [TreeNodes](TreeNodes)  
+an array of nDeep [TreeNodes](#TreeNode)  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
