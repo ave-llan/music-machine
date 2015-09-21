@@ -32,7 +32,7 @@ in the context of a key</p>
 with the key and startPitch set as defaults.</p>
 </dd>
 <dt><a href="#sortPitches">sortPitches(pitches)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
-<dd><p>helper function to return a copy of .</p>
+<dd><p>helper function to sort an array of pitches from lowest to highest</p>
 </dd>
 </dl>
 ## Typedefs
@@ -353,7 +353,7 @@ returns a function with the given argument set as a default.
 
 <a name="sortPitches"></a>
 ## sortPitches(pitches) ⇒ <code>Array.&lt;string&gt;</code>
-helper function to return a copy of .
+helper function to sort an array of pitches from lowest to highest
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;string&gt;</code> - a new clone of the provided pitch string
