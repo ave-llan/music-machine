@@ -1,5 +1,8 @@
 Create music by defining a musical style. Describe the style's syntax with a generative [context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar).
 
+[musicmachine.io](http://musicmachine.io)
+![Example](http://musicmachine.io/resources/cfexample.gif)
+
 ## Example
 A music-machine guide will give you a list of possible next notes at each step. As an example, here is an in-progress guide which is using a grammar that follows [counterpoint rules](http://hum.uchicago.edu/classes/zbikowski/species.html).
 ```js
