@@ -1,7 +1,6 @@
 Create music by defining a musical style. Describe the style's syntax with a generative [context-free grammar](https://en.wikipedia.org/wiki/Context-free_grammar).
 
-[musicmachine.io](http://musicmachine.io)
-![Example](http://musicmachine.io/resources/cfexample.gif)
+## musicmachine.io
 
 ## Example
 A music-machine guide will give you a list of possible next notes at each step. As an example, here is an in-progress guide which is using a grammar that follows [counterpoint rules](http://hum.uchicago.edu/classes/zbikowski/species.html).
@@ -30,6 +29,9 @@ guide.choose('D3')
 guide.construction()    =>
 [ 'D3', 'E3', 'F3', 'C3', 'D3', 'F3', 'E3', 'G3', 'Bb2', 'C3', 'F3', 'E3', 'D3']
 ```
+
+See [musicmachine.io](http://musicmachine.io) for an interactive GUI build on this module that follows counterpoint rules.
+![Example counterpoint](http://musicmachine.io/resources/cfexample.gif)
 
 ## Overview
 
