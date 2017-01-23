@@ -27,7 +27,7 @@ test('MusicMachine filters', function (t) {
   guide.choose('D')
   t.deepEqual(guide.choices().sort(),
     ['E4', 'G4', 'A4', 'Bb4', 'D5',
-    'C4', 'A3', 'G3', 'F3', 'D3'].sort())
+     'C4', 'A3', 'G3', 'F3', 'D3'].sort())
 
   t.end()
 })

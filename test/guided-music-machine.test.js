@@ -18,7 +18,7 @@ test('GuidedMusicMachine', function (t) {
   t.deepEqual(guide.construction(), ['D4'])
   t.deepEqual(guide.choices().sort(),
     ['E4', 'F4', 'G4', 'A4', 'Bb4', 'D5',
-    'C4', 'Bb3', 'A3', 'G3', 'F3', 'D3'].sort())
+     'C4', 'Bb3', 'A3', 'G3', 'F3', 'D3'].sort())
 
   t.equal(guide.pop(), 'D4')
   t.deepEqual(guide.construction(), [])
@@ -32,7 +32,7 @@ test('GuidedMusicMachine', function (t) {
   t.deepEqual(guide.construction(), ['D3'])
   t.deepEqual(guide.choices().sort(),
     ['E3', 'F3', 'G3', 'A3', 'Bb3', 'D4',
-    'C3', 'Bb2', 'A2', 'G2', 'F2', 'D2'].sort())
+     'C3', 'Bb2', 'A2', 'G2', 'F2', 'D2'].sort())
   t.throws(function () {
     guide.choose('F#3')
   }, Error)
@@ -48,7 +48,7 @@ test('GuidedMusicMachine', function (t) {
   t.deepEqual(guide.construction(), ['D3'])
   t.deepEqual(guide.choices().sort(),
     ['E3', 'F3', 'G3', 'A3', 'Bb3', 'D4',
-    'C3', 'Bb2', 'A2', 'G2', 'F2', 'D2'].sort())
+     'C3', 'Bb2', 'A2', 'G2', 'F2', 'D2'].sort())
   guide.choose('D2')
   t.deepEqual(guide.construction(), ['D3', 'D2'])
   t.deepEqual(guide.choices().sort(),
@@ -67,10 +67,10 @@ test('GuidedMusicMachine nDeep choices', function (t) {
   var jupiterGrammar = {
     InfinitePhrase: [ 'JupiterTheme InfinitePhrase',
                       'SecondMotive InfinitePhrase' ],
-    JupiterTheme: [ '2  3  -2' ],
-    SecondMotive: [ '4  StepDown' ],
-    StepDown: [ '-2',
-                '-2  StepDown' ]
+    JupiterTheme : [ '2  3  -2' ],
+    SecondMotive : [ '4  StepDown' ],
+    StepDown     : [ '-2',
+                     '-2  StepDown' ]
   }
 
   var jupiter = new MusicMachine(jupiterGrammar, 'InfinitePhrase', [1, 5])
@@ -92,39 +92,39 @@ test('GuidedMusicMachine nDeep choices', function (t) {
   t.deepEqual(guide.choices(4),
     [
       {
-        'val': 'G',
-        'next': [
+        'val'  : 'G',
+        'next' : [
           {
-            'val': 'A4',
-            'next': [
+            'val'  : 'A4',
+            'next' : [
               {
-                'val': 'C5',
-                'next': [
+                'val'  : 'C5',
+                'next' : [
                   {
-                    'val': 'Bb4',
-                    'next': []
+                    'val'  : 'Bb4',
+                    'next' : []
                   }
                 ]
               }
             ]
           },
           {
-            'val': 'C5',
-            'next': [
+            'val'  : 'C5',
+            'next' : [
               {
-                'val': 'Bb4',
-                'next': [
+                'val'  : 'Bb4',
+                'next' : [
                   {
-                    'val': 'C5',
-                    'next': []
+                    'val'  : 'C5',
+                    'next' : []
                   },
                   {
-                    'val': 'E5',
-                    'next': []
+                    'val'  : 'E5',
+                    'next' : []
                   },
                   {
-                    'val': 'A4',
-                    'next': []
+                    'val'  : 'A4',
+                    'next' : []
                   }
                 ]
               }
@@ -133,39 +133,39 @@ test('GuidedMusicMachine nDeep choices', function (t) {
         ]
       },
       {
-        'val': 'D',
-        'next': [
+        'val'  : 'D',
+        'next' : [
           {
-            'val': 'E4',
-            'next': [
+            'val'  : 'E4',
+            'next' : [
               {
-                'val': 'G4',
-                'next': [
+                'val'  : 'G4',
+                'next' : [
                   {
-                    'val': 'F4',
-                    'next': []
+                    'val'  : 'F4',
+                    'next' : []
                   }
                 ]
               }
             ]
           },
           {
-            'val': 'G4',
-            'next': [
+            'val'  : 'G4',
+            'next' : [
               {
-                'val': 'F4',
-                'next': [
+                'val'  : 'F4',
+                'next' : [
                   {
-                    'val': 'G4',
-                    'next': []
+                    'val'  : 'G4',
+                    'next' : []
                   },
                   {
-                    'val': 'Bb4',
-                    'next': []
+                    'val'  : 'Bb4',
+                    'next' : []
                   },
                   {
-                    'val': 'E4',
-                    'next': []
+                    'val'  : 'E4',
+                    'next' : []
                   }
                 ]
               }
@@ -201,76 +201,76 @@ test('GuidedMusicMachine nDeep choices', function (t) {
   t.deepEqual(guide.choices(3),
     [
       {
-        'val': 'C4',
-        'next': [
+        'val'  : 'C4',
+        'next' : [
           {
-            'val': 'E4',
-            'next': [
+            'val'  : 'E4',
+            'next' : [
               {
-                'val': 'D4',
-                'next': []
+                'val'  : 'D4',
+                'next' : []
               }
             ]
           }
         ]
       },
       {
-        'val': 'E4',
-        'next': [
+        'val'  : 'E4',
+        'next' : [
           {
-            'val': 'D4',
-            'next': [
+            'val'  : 'D4',
+            'next' : [
               {
-                'val': 'E4',
-                'next': []
+                'val'  : 'E4',
+                'next' : []
               },
               {
-                'val': 'G4',
-                'next': []
+                'val'  : 'G4',
+                'next' : []
               },
               {
-                'val': 'C4',
-                'next': []
+                'val'  : 'C4',
+                'next' : []
               }
             ]
           }
         ]
       },
       {
-        'val': 'A3',
-        'next': [
+        'val'  : 'A3',
+        'next' : [
           {
-            'val': 'Bb3',
-            'next': [
+            'val'  : 'Bb3',
+            'next' : [
               {
-                'val': 'D4',
-                'next': []
+                'val'  : 'D4',
+                'next' : []
               }
             ]
           },
           {
-            'val': 'D4',
-            'next': [
+            'val'  : 'D4',
+            'next' : [
               {
-                'val': 'C4',
-                'next': []
+                'val'  : 'C4',
+                'next' : []
               }
             ]
           },
           {
-            'val': 'G3',
-            'next': [
+            'val'  : 'G3',
+            'next' : [
               {
-                'val': 'A3',
-                'next': []
+                'val'  : 'A3',
+                'next' : []
               },
               {
-                'val': 'C4',
-                'next': []
+                'val'  : 'C4',
+                'next' : []
               },
               {
-                'val': 'F3',
-                'next': []
+                'val'  : 'F3',
+                'next' : []
               }
             ]
           }
